@@ -13,7 +13,8 @@ Download additional python-based ROS tools and init them:
 	pip install -U rosdep
 	pip install -U wstool
 	
-		(or download and "python setup.py install" them from here https://github.com/vcstools/)
+		-or download and "python setup.py install" them from here https://github.com/vcstools/
+		-or "sudo apt-get install python-rosdep" on linux
 		
 	sudo rosdep init
 	rosdep update
