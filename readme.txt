@@ -25,6 +25,9 @@ Note: this describes installation of tool which uses standalone version of rosja
 
 Download this list repo containing list of packages in the .rosinstall file.
 
+Choose which version to use, e.g. for standalone (creates .rosinstal file):
+	wstool init -j8 . standalone.rosinstall
+
 Download all required packages:
 	wstool update
 
