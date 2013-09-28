@@ -1,1 +1,6 @@
-- git: {local-name: rosjava_core, uri: 'git@github.com:jvitku/rosjava_core.git'}
+# List of packages necessary used for ROS-hased version of rosjava_core
+# Author: Jaroslav Vitku
+#
+# TODO, test this on Ubuntu/OS X
+#
+- git: {local-name: rosjava_core, uri: 'git@github.com:jvitku/rosjava_core.git', version: hydro-devel}
