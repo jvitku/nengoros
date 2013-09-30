@@ -1,0 +1,43 @@
+/*
+ * by Jaroslav Vitku
+ */
+
+task wrapper(type: Wrapper) {
+//  gradleVersion = '1.0-milestone-9'
+	gradleVersion = "1.5"
+}
+
+allprojects {
+  group 'nengoros'
+  version = '0.0.0-SNAPSHOT'
+}
+
+subprojects {
+  if (name != 'docs') {
+    apply plugin: 'java'
+    apply plugin: 'osgi'
+    apply plugin: 'eclipse'
+    apply plugin: 'maven'
+
+    apply plugin: 'application'
+
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+    }
+}
+// rosjava originally used online maven repository (I made it independent on the internet) conenction
+
+/*
+    repositories {
+      mavenLocal()
+      maven {
+//        url 'http://robotbrains.hideho.org/nexus/content/groups/ros-public'
+		url 'https://maven-us.nuxeo.org/nexus/content/repositories/public'
+      }
+    }
+
+  }
+}
+*/
+defaultTasks 'install'
+

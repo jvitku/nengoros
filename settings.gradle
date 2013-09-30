@@ -1,0 +1,10 @@
+// @author Jaroslav Vítků [vitkujar@fel.cvut.cz]
+
+// This file defines the project hierarchy for gradle.
+// Note that this does not include ROS-components used by rosjava_core (e.g. common_msgs..).
+
+include 'rosjava', 'jroscore'
+
+
+//include 'rosjava', 'simulator', 'simulator-ui', 'smartNeurons'
+

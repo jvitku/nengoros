@@ -31,7 +31,7 @@ Download all required packages:
 Set ROS_PACKAGE_PATH to current directory	
 	export ROS_PACKAGE_PATH=$PWD:$ROS_PACKAGE_PATH
 
-Compile rosjava_core:
+Compile rosjava_core and install it into ~/.m2/ repository:
 	cd rosjava_core
-	./gradlew build
+	./gradlew build install 
 	
