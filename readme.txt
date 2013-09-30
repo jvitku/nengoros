@@ -28,10 +28,10 @@ Choose which version to use, e.g. for standalone (creates .rosinstal file):
 Download all required packages:
 	wstool update
 
-Set ROS_PACKAGE_PATH to current directory	
-	export ROS_PACKAGE_PATH=$PWD:$ROS_PACKAGE_PATH
 
-Compile rosjava_core and install it into ~/.m2/ repository:
-	cd rosjava_core
-	./gradlew build install 
+Run the install script:
+	./install
 	
+	this will:
+		-compile rosjava_core and install it into ~/.m2 repository
+		-compile and install jroscore intl ~/.m2 repo and as an application under jroscore/

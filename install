@@ -1,0 +1,94 @@
+#!/bin/sh
+
+# by Jaroslav Vitku [vitkujar@fel.cvut.cz]
+
+# After downloading the project into your computer, run this script to 
+# install rosjava libraries and initialize Nengoros Eclipse projects  
+
+# This script does:
+#   -compiles rosjava and installs it into local maven repository (~/.m2/repository/)
+#       -this repository is then used by nengoros and by arbitrary other rosjava nodes 
+#   -builds all nengoros projects without running tests (TODO: some nengo tests fail)
+#   -creates eclipse projects for everything useful in nengoros multi-project
+
+
+# note that all (rosjava-dependent) projects are dependent on maven rosjava installation
+# this should be easily changed though.. 
+
+# The ROS_PACKAGE_PATH should point to the ROS installation and/or to the current folder
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXXX Checking the ROS_PACKAGE_PATH .."
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+# Basically: ROS installation sets this path to its own ros/[ROS-version]/share folder
+# If this path is not set, ROS is probably not installed and this script presumes the 
+# rosjava_core installation as a standalone version => sets the path to the current folder.
+# 
+# 
+# Note that user may want to use custom messages (e.g. for vivae simulator) which are not defined 
+# in this folder. In this case, add these messages to $ROS_PACKAGE_PATH and this rerun this script! 
+USEROSPATH=1        # should we force ignore $ROS_PACKAGE_PATH??
+
+if [ "$USEROSPATH" -eq "1" ]; then
+	if [ -d "$ROS_PACKAGE_PATH" ]; then
+		echo "ROS_PACKAGE_PATH is already set, presuming that ROS is installed.."
+	else
+		echo "Setting my path.." 
+	    export ROS_PACKAGE_PATH=$PWD
+	fi
+else
+	echo "Setting my path.." 
+    export ROS_PACKAGE_PATH=$PWD
+fi
+
+echo "ROS_PACKAGE_PATH="$ROS_PACKAGE_PATH 
+
+
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXX Building rosjava and installing it to local maven repository"
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+cd rosjava_core
+./gradlew clean install installApp eclipse
+
+
+#echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+#echo "   XXXXXXX Building all Nengoros projects (without running tests) and creating Eclipse projects "
+#echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+#cd ../
+#./gradlew clean build -x test eclipse
+
+
+#echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+#echo "   XXXXXXX Installing subproject testnodes also as an application (so you can run: ./run org...)"
+#echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+#cd testnodes
+#./gradlew install installApp
+
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXX Installing project jroscore also as an application"
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+cd ../jroscore
+./gradlew install installApp
+
+
+############# init other java nodes?
+#INITNODES=1
+#if [ "$INITNODES" -eq "1" ]; then
+#    cd ../../javanodes/
+#	./initjavanodes
+#fi
+
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXX All done.. "
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+
+echo "ready to use rosjava_core, start with launching ./jroscore/jroscore"
+#echo "\n PS: Now you can open all Nengoros projects in Eclipse and write your custom nodes "
+#echo " which depend on maven (~/.m2/....) installation of rosjava..\n "
+
+
