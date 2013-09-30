@@ -68,11 +68,11 @@ cd rosjava_core
 #./gradlew install installApp
 
 echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-echo "   XXXXXXX Installing project jroscore also as an application"
+echo "   XXXXXXX Installing the rest of the multiproject by means of gradle"
 echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 
-cd ../jroscore
-./gradlew install installApp
+cd ../
+./gradlew
 
 
 ############# init other java nodes?

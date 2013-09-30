@@ -34,4 +34,5 @@ Run the install script:
 	
 	this will:
 		-compile rosjava_core and install it into ~/.m2 repository
-		-compile and install jroscore intl ~/.m2 repo and as an application under jroscore/
+		-compile and install other nengoros components
+		 	- e.g. install jroscore intl ~/.m2 repo and as an application under jroscore/

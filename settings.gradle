@@ -1,10 +1,27 @@
 // @author Jaroslav Vítků [vitkujar@fel.cvut.cz]
 
 // This file defines the project hierarchy for gradle.
-// Note that this does not include ROS-components used by rosjava_core (e.g. common_msgs..).
 
-include 'rosjava', 'jroscore'
+/*
+Note1: gradle multiproject does not include the rosjava_core, because this requires
+adding prefix "rosjava_core" to all the sub-project names, e.g. docs to rosjava_core:docs.
 
+But rosjava_core is contained in this workspace, so user can recompile the library 
+in order to generate interfaces for new custom messages, which are potentially contained
+in other ROS(java) packages used.
+*/
 
-//include 'rosjava', 'simulator', 'simulator-ui', 'smartNeurons'
+include 'jroscore'
 
+/*
+// @see Note1.
+include 'rosjava_core:rosjava_bootstrap', 'rosjava_core:rosjava_messages', 
+        'rosjava_core:apache_xmlrpc_common',
+        'rosjava_core:apache_xmlrpc_client', 'rosjava_core:apache_xmlrpc_server', 
+        'rosjava_core:rosjava',
+        'rosjava_core:rosjava_geometry', 'rosjava_core:rosjava_tutorial_pubsub',
+        'rosjava_core:rosjava_tutorial_services', 
+        'rosjava_core:rosjava_tutorial_right_hand_rule',
+        'rosjava_core:rosjava_benchmarks', 'rosjava_core:rosjava_test', 'rosjava_core:docs'
+        *
+*/
