@@ -49,7 +49,15 @@ echo "   XXXXXXX Building rosjava and installing it to local maven repository"
 echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 
 cd rosjava_core
-./gradlew clean install installApp eclipse
+# note: after runnign this script, project rosjava/rosjava_messages/.classpath could contain
+# duplicate entry. This is due to Gradle error, e.g. delete one entry (and refresh Eclipse)
+rm rosjava_messages/.classpath
+rm ../nengo/simulator/.classpath       # gradle error, duplicate entry: path="org.eclipse.jdt.launching.JRE_CONTAINER" ..
+rm ../nengo/simulator-ui/.classpath    # -,,-
+
+# Nengo tests can fail, authors say that it is OK, so continue after fails
+#./gradlew clean install eclipse --continue
+./gradlew clean install installApp eclipse --continue -x test
 
 
 #echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
@@ -71,9 +79,12 @@ echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 echo "   XXXXXXX Installing the rest of the multiproject by means of gradle"
 echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 
-cd ../
-./gradlew
+cd ../ && ./gradlew install eclipse
 
+# we actually do not wont top-level projects to be imported in eclipse (but the lower ones)
+# TODO: make this nicer
+rm nengo/.project
+rm .project
 
 ############# init other java nodes?
 #INITNODES=1

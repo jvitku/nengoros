@@ -11,7 +11,7 @@ in order to generate interfaces for new custom messages, which are potentially c
 in other ROS(java) packages used.
 */
 
-include 'jroscore'
+include 'jroscore', 'nengo:simulator', 'nengo:simulator-ui'
 
 /*
 // @see Note1.

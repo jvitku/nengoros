@@ -5,3 +5,5 @@
 #
 - git: {local-name: rosjava_core, uri: 'git@github.com:jvitku/rosjava_core.git', version: hydro-devel}
 - git: {local-name: jroscore, uri: 'git@github.com:jvitku/jroscore.git', version: master}
+- git: {local-name: nengo, uri: 'https://github.com/jvitku/nengo_1.4.git', version: nr-integration}
+
