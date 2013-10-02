@@ -11,6 +11,9 @@ ros_comm/
 std_msgs/
 
 # Gradle hashes
-taskArtifacts/
+taskArtifacts.bin
+fileSnapshots.bin
+fileHashes.bin
+
 # eclipse
 .settings

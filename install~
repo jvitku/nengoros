@@ -30,9 +30,11 @@ echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 IGNORELOCAL=0        # should we ignore messages in the current folder if ROS found?
 
 if [ -z "$ROS_PACKAGE_PATH" ]; then
+
 	echo "ROS probably not installed (ROS_PACKAGE_PATH not set) setting it to PWD.." 
     	export ROS_PACKAGE_PATH=$PWD
 else
+	echo "exiiists"
 	if [ "$IGNORELOCAL" -eq "1" ]; then
 		echo "ROS_PACKAGE_PATH is already set, and we should ignore local messages. Doing nothing.."
 	else
