@@ -9,3 +9,11 @@ common_msgs/
 geometry/
 ros_comm/
 std_msgs/
+
+# Gradle hashes
+taskArtifacts.bin
+fileSnapshots.bin
+fileHashes.bin
+
+# eclipse
+.settings
