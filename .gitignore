@@ -1,3 +1,11 @@
 .DS_Store
 .metadata
 .rosinstall
+build/
+jroscore/
+nengo/
+rosjava_core/
+common_msgs/
+geometry/
+ros_comm/
+std_msgs/

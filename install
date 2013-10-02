@@ -26,19 +26,21 @@ echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # 
 # 
 # Note that user may want to use custom messages (e.g. for vivae simulator) which are not defined 
-# in this folder. In this case, add these messages to $ROS_PACKAGE_PATH and this rerun this script! 
-USEROSPATH=1        # should we force ignore $ROS_PACKAGE_PATH??
+# in this folder. In this case, add these messages to $ROS_PACKAGE_PATH and rerun this script! 
+IGNORELOCAL=0        # should we ignore messages in the current folder if ROS found?
 
-if [ "$USEROSPATH" -eq "1" ]; then
-	if [ -d "$ROS_PACKAGE_PATH" ]; then
-		echo "ROS_PACKAGE_PATH is already set, presuming that ROS is installed.."
-	else
-		echo "Setting my path.." 
-	    export ROS_PACKAGE_PATH=$PWD
-	fi
+if [ -z "$ROS_PACKAGE_PATH" ]; then
+
+	echo "ROS probably not installed (ROS_PACKAGE_PATH not set) setting it to PWD.." 
+    	export ROS_PACKAGE_PATH=$PWD
 else
-	echo "Setting my path.." 
-    export ROS_PACKAGE_PATH=$PWD
+	echo "exiiists"
+	if [ "$IGNORELOCAL" -eq "1" ]; then
+		echo "ROS_PACKAGE_PATH is already set, and we should ignore local messages. Doing nothing.."
+	else
+		echo "ROS_PACKAGE_PATH is set, adding this directory at the beginning."
+		export ROS_PACKAGE_PATH=$PWD:$ROS_PACKAGE_PATH
+	fi
 fi
 
 echo "ROS_PACKAGE_PATH="$ROS_PACKAGE_PATH 
@@ -51,9 +53,14 @@ echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 cd rosjava_core
 # note: after runnign this script, project rosjava/rosjava_messages/.classpath could contain
 # duplicate entry. This is due to Gradle error, e.g. delete one entry (and refresh Eclipse)
-rm rosjava_messages/.classpath
-rm ../nengo/simulator/.classpath       # gradle error, duplicate entry: path="org.eclipse.jdt.launching.JRE_CONTAINER" ..
-rm ../nengo/simulator-ui/.classpath    # -,,-
+if [ -f rosjava_messages/.classpath ]; then rm rosjava_messages/.classpath
+fi
+
+# gradle error, duplicate entry path="org.eclipse.jdt.launching.JRE_CONTAINER"
+if [ -f ../nengo/simulator/.classpath ]; then rm ../nengo/simulator/.classpath 
+fi
+if [ -f ../nengo/simulator-ui/.classpath ]; then rm ../nengo/simulator-ui/.classpath 
+fi
 
 # Nengo tests can fail, authors say that it is OK, so continue after fails
 #./gradlew clean install eclipse --continue
