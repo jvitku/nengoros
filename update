@@ -59,6 +59,7 @@ echo "   XXXXXXX All done"
 echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 
 
+echo "Note: if your repositories were not all up-to date, consider re-running 'install' script.\n"
 
 
 
