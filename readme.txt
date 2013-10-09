@@ -36,3 +36,9 @@ Run the install script:
 		-compile rosjava_core and install it into ~/.m2 repository
 		-compile and install other nengoros components
 		 	- e.g. install jroscore intl ~/.m2 repo and as an application under jroscore/
+
+=============================== UPDATE:
+The script ./update can be used for updating the entire multi-project from remote repositories. It does:
+	-determines type of installation
+	-removes .rosinstall file and creates new with information from *.rosinstall file
+	-updates all sub-projects from remote(s)

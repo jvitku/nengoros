@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+# by Jaroslav Vitku [vitkujar@fel.cvut.cz]
+#
+# This script can be used for updating entire nengo-ros multi-project from remote repositories.
+# 
+# 
+
+# check whether .rosinstall is here
+if [ ! -f .rosinstall ]; then 
+    echo '.rosinstall file not found here! See README.txt for installation info. Exiting!\n\n'
+    exit
+fi
+
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXXX Checking the ROS_PACKAGE_PATH .."
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+
+IGNORELOCAL=0        # should we ignore messages in the current folder if ROS found?
+
+if [ -z "$ROS_PACKAGE_PATH" ]; then
+	echo "ROS probably not installed (ROS_PACKAGE_PATH not set) setting it to PWD.." 
+    	export ROS_PACKAGE_PATH=$PWD
+else
+	if [ "$IGNORELOCAL" -eq "1" ]; then
+		echo "ROS_PACKAGE_PATH is already set, OK.."
+	fi
+fi
+echo "ROS_PACKAGE_PATH="$ROS_PACKAGE_PATH
+
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXX Updating Nengo-ros project from github"
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+git pull origin
+
+
+# Check which version is installed: rosbased or standalone?
+# Standalone contains 'common_msgs' meta-package:
+STD=$(cat .rosinstall | grep common_msgs)
+rm .rosinstall
+
+if [ ! -z "$STD" -a "$STD" != " " ]; then
+    echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+    echo "   XXXXXXX Re-initializing workspace with standalone.rosinstall file"
+    echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+    wstool init -j8 . standalone.rosinstall
+else
+    echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+    echo "   XXXXXXX Re-initializing workspace with rosbased.rosinstall file"
+    echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+    wstool init -j8 . rosbased.rosinstall
+    
+fi
+
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXX All done"
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+
+
+
+
+
+
+
+
+
