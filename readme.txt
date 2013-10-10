@@ -13,8 +13,33 @@ Download additional python-based ROS tool and init it:
 	
 		-or download and "python setup.py install" them from here https://github.com/vcstools/
 		-or "sudo apt-get install python-wstool" on linux
-		
+
+Create python virtualenv called nengoros:
+
+download fortran
+	brew install gfortran
+
+download virtualenv and wrapper
+	sudo pip install virtualenv
+	sudo pip install virtualenvwrapper
+
+create ~/.virtualenvs directory
+	source /usr/local/bin/virtualenvwrapper.sh 
+	
+create your virtualenv
+	mkvirtualenv nengoros
+	source nengoros/bin/activate
+ 
+	
+"It is activated by default, so running any pip command will only impact this environment. Note that if you deactivate the virtualenv, you will lose access to any packages installed in it. You can switch between virtualenvs with the workon command." [ http://www.thisisthegreenroom.com/2011/installing-python-numpy-scipy-matplotlib-and-ipython-on-lion/ ]
+
+
+Install scipy and numpy:
+	pip install numpy	
+	pip install scipy
+
 =============================== INSTALLATION:
+
 There are two choices of installation:
 	-rosbased:
 		-use if you managed to install ROS infrastructure
@@ -25,10 +50,6 @@ There are two choices of installation:
 Choose which version to use, e.g. for standalone (creates .rosinstal file):
 	wstool init -j8 . standalone.rosinstall
 
-Download all required packages:
-	wstool update
-
-
 Run the install script:
 	./install
 	
@@ -36,6 +57,7 @@ Run the install script:
 		-compile rosjava_core and install it into ~/.m2 repository
 		-compile and install other nengoros components
 		 	- e.g. install jroscore intl ~/.m2 repo and as an application under jroscore/
+
 
 =============================== UPDATE:
 The script ./update can be used for updating the entire multi-project from remote repositories. It does:

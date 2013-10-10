@@ -15,3 +15,7 @@ custom_msgs
 taskArtifacts/
 # eclipse
 .settings
+
+
+# linux
+*~
