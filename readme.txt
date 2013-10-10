@@ -28,7 +28,7 @@ create ~/.virtualenvs directory
 	
 create your virtualenv
 	mkvirtualenv nengoros
-	source nengoros/bin/activate
+	source ~/.virtualenvs/nengoros/bin/activate
  
 	
 "It is activated by default, so running any pip command will only impact this environment. Note that if you deactivate the virtualenv, you will lose access to any packages installed in it. You can switch between virtualenvs with the workon command." [ http://www.thisisthegreenroom.com/2011/installing-python-numpy-scipy-matplotlib-and-ipython-on-lion/ ]
@@ -46,21 +46,29 @@ There are two choices of installation:
 	-standalone:
 		-does not require any other ROS packages
 		
-
 Choose which version to use, e.g. for standalone (creates .rosinstal file):
 	wstool init -j8 . standalone.rosinstall
 
-Run the install script:
-	./install
+Run the tool script:
+	./tool
 	
 	this will:
 		-compile rosjava_core and install it into ~/.m2 repository
 		-compile and install other nengoros components
 		 	- e.g. install jroscore intl ~/.m2 repo and as an application under jroscore/
 
+For more useful features, run:
+	./tool -h
+	
+
 
 =============================== UPDATE:
-The script ./update can be used for updating the entire multi-project from remote repositories. It does:
+The script ./tool can be used for updating the entire multi-project from remote repositories. It does:
 	-determines type of installation
 	-removes .rosinstall file and creates new with information from *.rosinstall file
 	-updates all sub-projects from remote(s)
+
+run this:
+	./tool -u
+	
+	
