@@ -101,6 +101,30 @@ update(){
     echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"
 }
 
+##################################################### Deploy Rosjava
+deploy(){
+    # simulator-ui/nengo script uses rosjava from local jar file so copy the results into the place
+    # TODO make this somehow nicer (without changes in original rosjava_core)
+
+    R=rosjava_core
+    BL=build/libs
+    SUFF=-0.0.0-SNAPSHOT.jar
+    DEST=nengo/lib-rosjava/
+    
+    # note: not all of these are used by nengo
+    cp $R/apache_xmlrpc_client/$BL/apache_xmlrpc_client$SUFF $DEST
+    cp $R/apache_xmlrpc_common/$BL/apache_xmlrpc_common$SUFF $DEST
+    cp $R/apache_xmlrpc_server/$BL/apache_xmlrpc_server$SUFF $DEST
+    cp $R/rosjava/$BL/rosjava$SUFF $DEST
+    cp $R/rosjava_benchmarks/$BL/rosjava_benchmarks$SUFF $DEST
+    cp $R/rosjava_bootstrap/$BL/rosjava_bootstrap$SUFF $DEST
+    cp $R/rosjava_geometry/$BL/rosjava_geometry$SUFF $DEST
+    cp $R/rosjava_messages/$BL/rosjava_messages$SUFF $DEST
+    cp $R/rosjava_test/$BL/rosjava_test$SUFF $DEST
+    cp $R/rosjava_tutorial_pubsub/$BL/rosjava_tutorial_pubsub$SUFF $DEST
+    cp $R/rosjava_tutorial_right_hand_rule/$BL/rosjava_tutorial_right_hand_rule$SUFF $DEST
+    cp $R/rosjava_tutorial_services/$BL/rosjava_tutorial_services$SUFF $DEST
+}
 
 ##################################################### Build Rosjava
 rosjava(){
@@ -126,7 +150,10 @@ rosjava(){
     else
         ./gradlew install eclipse --continue
     fi
+    
+    deploy
 }
+
 
 ##################################################### Build Nengoros
 nengoros(){
