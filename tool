@@ -122,9 +122,9 @@ rosjava(){
 
     # Nengo tests can fail, authors say that it is OK, so continue after fails
     if [ $F = "1" ]; then
-        ./gradlew clean install eclipse --continue -x test
+        ./gradlew install eclipse --continue -x test
     else
-        ./gradlew clean install eclipse --continue
+        ./gradlew install eclipse --continue
     fi
 }
 
