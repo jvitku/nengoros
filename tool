@@ -111,6 +111,7 @@ deploy(){
     SUFF=-0.0.0-SNAPSHOT.jar
     DEST=nengo/lib-rosjava/
     
+    cd $BASE
     # note: not all of these are used by nengo
     cp $R/apache_xmlrpc_client/$BL/apache_xmlrpc_client$SUFF $DEST
     cp $R/apache_xmlrpc_common/$BL/apache_xmlrpc_common$SUFF $DEST
@@ -163,16 +164,22 @@ nengoros(){
     echo "   XXXXXXX Building and installing the Nengoros multiproject"
     echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
     
+    cp nengo/simulator-ui/rosjava.build.gradle nengo/simulator-ui/build.gradle     
+    
     if [ $F = "1" ]; then
         ./gradlew install eclipse -x test
     else
-        ./gradlew install eclipse
+        # TODO somehow may not be running tests
+        ./gradlew install eclipse test
     fi
 
     # we actually do not wont top-level projects to be imported in eclipse (but the lower ones)
     # TODO: make this nicer
     rm nengo/.project
     rm .project
+    
+    # to force the user to use build.gradle.rosjava
+    rm nengo/simulator-ui/build.gradle 
 }
 
 ##################################################### Parse command line
