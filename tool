@@ -82,22 +82,31 @@ update(){
 
     git pull origin
 
-    # Check which version is installed: rosbased or standalone?
-    # Standalone contains 'common_msgs' meta-package:
-    STD=$(cat .rosinstall | grep common_msgs)
-    rm .rosinstall
-
-    if [ ! -z "$STD" -a "$STD" != " " ]; then
-        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-        echo "   XXXXXXX Re-initializing workspace with standalone.rosinstall file"
+	# is the workspace inited with .rosinstall file? if not, install standalone by default
+    if [ -f .rosinstall ]; then 
+	    # Check which version is installed: rosbased or standalone?
+	    # Standalone contains 'common_msgs' meta-package:
+		STD=$(cat .rosinstall | grep common_msgs)
+    	rm .rosinstall
+	    if [ ! -z "$STD" -a "$STD" != " " ]; then
+	        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+	        echo "   XXXXXXX Re-initializing workspace with standalone.rosinstall file"
+	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+	        wstool init -j8 . standalone.rosinstall
+	    else
+	        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+	        echo "   XXXXXXX Re-initializing workspace with rosbased.rosinstall file"
+	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+	        wstool init -j8 . rosbased.rosinstall
+	    fi
+	else
+		echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+        echo "   XXXXXXX Workspace (.rosinstall) not found! -> initializing workspace with standalone version"
         echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
         wstool init -j8 . standalone.rosinstall
-    else
-        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-        echo "   XXXXXXX Re-initializing workspace with rosbased.rosinstall file"
-        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
-        wstool init -j8 . rosbased.rosinstall
-    fi
+	fi
+
+
     echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"
 }
 
