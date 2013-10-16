@@ -174,7 +174,8 @@ nengoros(){
     echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
     
     cp nengo/simulator-ui/rosjava.build.gradle nengo/simulator-ui/build.gradle     
-    
+    cp nengo/simulator/rosjava.build.gradle nengo/simulator/build.gradle     
+
     if [ $F = "1" ]; then
         ./gradlew install eclipse -x test
     else
@@ -189,6 +190,7 @@ nengoros(){
     
     # to force the user to use build.gradle.rosjava
     rm nengo/simulator-ui/build.gradle 
+    rm nengo/simulator/build.gradle 
 }
 
 ##################################################### Parse command line
