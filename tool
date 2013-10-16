@@ -56,15 +56,10 @@ update(){
     git pull origin
 
     if [ -f .rosinstall ]; then 
-		    echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-	        echo "   XXXXXXX Workspace (.rosinstall file) not found! Initializing standalone version! "
-	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
-			wstool init -j8 . standalone.rosinstall
-	else
 	    # Check which version is installed: rosbased or standalone?
 	    # Standalone contains 'common_msgs' meta-package:
-	    STD=$(cat .rosinstall | grep common_msgs)
-	    rm .rosinstall
+		STD=$(cat .rosinstall | grep common_msgs)
+    	rm .rosinstall
 
 	    if [ ! -z "$STD" -a "$STD" != " " ]; then
 	        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
@@ -77,8 +72,17 @@ update(){
 	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 	        wstool init -j8 . rosbased.rosinstall
 	    fi
+
 	    echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"
+	else
+		echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+        echo "   XXXXXXX Workspace (.rosinstall) not found! -> initializing workspace with standalone version"
+        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+        wstool init -j8 . standalone.rosinstall
 	fi
+
+    echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"
+
 }
 
 ##################################################### Deploy Rosjava
@@ -145,7 +149,8 @@ nengoros(){
     echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
     
     cp nengo/simulator-ui/rosjava.build.gradle nengo/simulator-ui/build.gradle     
-    
+    cp nengo/simulator/rosjava.build.gradle nengo/simulator/build.gradle     
+
     if [ $F = "1" ]; then
         ./gradlew install eclipse -x test
     else
@@ -160,6 +165,7 @@ nengoros(){
     
     # to force the user to use build.gradle.rosjava
     rm nengo/simulator-ui/build.gradle 
+    rm nengo/simulator/build.gradle 
 }
 
 
