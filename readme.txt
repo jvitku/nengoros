@@ -1,4 +1,4 @@
-This is Nengo-ros, a tool for simulating large-scale hybrid neural systems by Jaroslav Vitku, see: http://artificiallife.co.nf/ . 
+This is Nengo-ros, a tool for simulating large-scale hybrid neural systems by Jaroslav Vitku, see: http://nengoros.wordpress.com (temporary website Alife group on CTU in Prague: http://artificiallife.co.nf/ ). 
 
 The resulting system is composed of:
  	-Nengo ( http://nengo.ca/ ) 
