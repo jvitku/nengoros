@@ -40,7 +40,16 @@ Install scipy and numpy:
 
 =============================== INSTALLATION:
 
-Run:
+Make folder with workspace:
+	mkdir -p ~/workspace && cd ~/workspace
+	
+Point ROS_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file )
+	export ROS_PACKAGE_PATH=~/workspace
+	
+Download nengoros configs
+	git clone 
+	
+Download and install selected packages (./tool -h)
 	./tool -unrf
 
 
