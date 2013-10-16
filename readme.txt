@@ -50,6 +50,7 @@ Download nengoros configs
 	git clone https://github.com/jvitku/nengoros.git
 	
 Download and install selected packages (./tool -h)
+	cd nengoros
 	./tool -unrf
 
 
