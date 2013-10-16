@@ -72,8 +72,6 @@ update(){
 	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 	        wstool init -j8 . rosbased.rosinstall
 	    fi
-
-	    echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"
 	else
 		echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
         echo "   XXXXXXX Workspace (.rosinstall) not found! -> initializing workspace with standalone version"
@@ -183,10 +181,10 @@ echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # Note that user may want to use custom messages (e.g. for vivae simulator) which are not defined 
 # in this folder. In this case, add these messages to $ROS_PACKAGE_PATH and rerun this script! 
 IGNORELOCAL=0        # should we ignore messages in the current folder if ROS found?
-
+WARN=0
 if [ -z "$ROS_PACKAGE_PATH" ]; then
 	echo "ROS probably not installed (ROS_PACKAGE_PATH not set) setting it to PWD.."
-	
+	WARN=1
 	# write it permanently
     #if [ -f ~/.bashrc ]; then
 	#	echo "linuuuuux"
@@ -202,6 +200,7 @@ else
 	if [ "$IGNORELOCAL" -eq "1" ]; then
 		echo "ROS_PACKAGE_PATH is already set, and we should ignore local messages. Doing nothing.."
 	else
+		WARN=2
 		echo "ROS_PACKAGE_PATH is set, adding this directory at the end."
 		export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$PWD
 	fi
@@ -267,6 +266,12 @@ echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 echo "   XXXXXXX All done.. "
 echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 
+if [ $WARN = "1" ]; then
+    echo "ROS_PACKAGE_PATH not set to point into this directory! This probably caused compilation to fail!"
+    echo "Add the line: export ROS_PACKAGE_PATH=$PWD into your ~/.profile or ~/.bashrc file and rerun this!\n\n"
+elif [ $WARN = "2" ]; then
+	echo "If there were compilation errors, does your ROS_PACKAGE_PATH contain this folder??\n\n"
+fi
 
 #echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
 #echo "   XXXXXXX Installing subproject testnodes also as an application (so you can run: ./run org...)"
