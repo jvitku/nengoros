@@ -128,7 +128,7 @@ rosjava(){
     fi
 
     # Nengo tests can fail, authors say that it is OK, so continue after fails
-    if [ $F = "1" ]; then
+    if [ $1 = "1" ]; then
         ./gradlew install eclipse --continue -x test
     else
         ./gradlew install eclipse --continue
@@ -149,7 +149,7 @@ nengoros(){
     cp nengo/simulator-ui/rosjava.build.gradle nengo/simulator-ui/build.gradle     
     cp nengo/simulator/rosjava.build.gradle nengo/simulator/build.gradle     
 
-    if [ $F = "1" ]; then
+    if [ $1 = "1" ]; then
         ./gradlew install eclipse -x test
     else
         # TODO somehow may not be running tests
@@ -246,8 +246,8 @@ virtualenv
 
 # recompile rosjava and nengoros by default
 if [ $R = "0" -a $N = "0" -a $U = "0" ]; then
-    rosjava
-    nengoros
+    rosjava $F
+    nengoros $F
 fi
 
 if [ $U = "1" ]; then
@@ -255,11 +255,11 @@ if [ $U = "1" ]; then
 fi
 
 if [ $R = "1" ]; then
-    rosjava
+    rosjava $F
 fi
 
 if [ $N = "1" ]; then
-    nengoros
+    nengoros $F
 fi
 
 echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
