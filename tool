@@ -31,35 +31,8 @@ usage()
 }
 
 ##################################################### Find variables
-prereqs(){
+virtualenv(){
     cd $BASE
-    # The ROS_PACKAGE_PATH should point to the ROS installation and/or to the current folder
-    echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-    echo "   XXXXXXXX Checking the ROS_PACKAGE_PATH .."
-    echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
-
-    # Basically: ROS installation sets this path to its own ros/[ROS-version]/share folder
-    # If this path is not set, ROS is probably not installed and this script presumes the 
-    # rosjava_core installation as a standalone version => sets the path to the current folder.
-    # 
-    # 
-    # Note that user may want to use custom messages (e.g. for vivae simulator) which are not defined 
-    # in this folder. In this case, add these messages to $ROS_PACKAGE_PATH and rerun this script! 
-    IGNORELOCAL=0        # should we ignore messages in the current folder if ROS found?
-
-    if [ -z "$ROS_PACKAGE_PATH" ]; then
-    	echo "ROS probably not installed (ROS_PACKAGE_PATH not set) setting it to PWD.." 
-        	export ROS_PACKAGE_PATH=$PWD
-    else
-    	if [ "$IGNORELOCAL" -eq "1" ]; then
-    		echo "ROS_PACKAGE_PATH is already set, and we should ignore local messages. Doing nothing.."
-    	else
-    		echo "ROS_PACKAGE_PATH is set, adding this directory at the end."
-    		export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$PWD
-    	fi
-    fi
-
-    echo "ROS_PACKAGE_PATH="$ROS_PACKAGE_PATH 
 
     echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
     echo "   XXXXXXXX Sourcing nengoros virtualenv .."
@@ -82,23 +55,30 @@ update(){
 
     git pull origin
 
-    # Check which version is installed: rosbased or standalone?
-    # Standalone contains 'common_msgs' meta-package:
-    STD=$(cat .rosinstall | grep common_msgs)
-    rm .rosinstall
+    if [ -f .rosinstall ]; then 
+		    echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+	        echo "   XXXXXXX Workspace (.rosinstall file) not found! Initializing standalone version! "
+	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+			wstool init -j8 . standalone.rosinstall
+	else
+	    # Check which version is installed: rosbased or standalone?
+	    # Standalone contains 'common_msgs' meta-package:
+	    STD=$(cat .rosinstall | grep common_msgs)
+	    rm .rosinstall
 
-    if [ ! -z "$STD" -a "$STD" != " " ]; then
-        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-        echo "   XXXXXXX Re-initializing workspace with standalone.rosinstall file"
-        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
-        wstool init -j8 . standalone.rosinstall
-    else
-        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-        echo "   XXXXXXX Re-initializing workspace with rosbased.rosinstall file"
-        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
-        wstool init -j8 . rosbased.rosinstall
-    fi
-    echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"
+	    if [ ! -z "$STD" -a "$STD" != " " ]; then
+	        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+	        echo "   XXXXXXX Re-initializing workspace with standalone.rosinstall file"
+	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+	        wstool init -j8 . standalone.rosinstall
+	    else
+	        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+	        echo "   XXXXXXX Re-initializing workspace with rosbased.rosinstall file"
+	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+	        wstool init -j8 . rosbased.rosinstall
+	    fi
+	    echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"
+	fi
 }
 
 ##################################################### Deploy Rosjava
@@ -182,6 +162,47 @@ nengoros(){
     rm nengo/simulator-ui/build.gradle 
 }
 
+
+##################################################### ROS_PACKAGE_PATH
+# The ROS_PACKAGE_PATH should point to the ROS installation and/or to the current folder
+echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+echo "   XXXXXXXX Checking the ROS_PACKAGE_PATH .."
+echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+
+# Basically: ROS installation sets this path to its own ros/[ROS-version]/share folder
+# If this path is not set, ROS is probably not installed and this script presumes the 
+# rosjava_core installation as a standalone version => sets the path to the current folder.
+# 
+# 
+# Note that user may want to use custom messages (e.g. for vivae simulator) which are not defined 
+# in this folder. In this case, add these messages to $ROS_PACKAGE_PATH and rerun this script! 
+IGNORELOCAL=0        # should we ignore messages in the current folder if ROS found?
+
+if [ -z "$ROS_PACKAGE_PATH" ]; then
+	echo "ROS probably not installed (ROS_PACKAGE_PATH not set) setting it to PWD.."
+	
+	# write it permanently
+    #if [ -f ~/.bashrc ]; then
+	#	echo "linuuuuux"
+	#	echo "\n#rosjava installation\nexport ROS_PACKAGE_PATH=$PWD \n" >> ~/.profilee
+	#	source ~/.bashrc
+	#elif [ -f ~/.profile ]; then
+	#	echo "OS X"
+	#	echo "\n#rosjava installation\nexport ROS_PACKAGE_PATH=$PWD \n" >> ~/.profile
+	#	source ~/.profile
+	#fi
+	export ROS_PACKAGE_PATH=$PWD
+else
+	if [ "$IGNORELOCAL" -eq "1" ]; then
+		echo "ROS_PACKAGE_PATH is already set, and we should ignore local messages. Doing nothing.."
+	else
+		echo "ROS_PACKAGE_PATH is set, adding this directory at the end."
+		export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$PWD
+	fi
+fi
+
+echo "ROS_PACKAGE_PATH="$ROS_PACKAGE_PATH
+
 ##################################################### Parse command line
 BASE=$PWD       # remember our place
 R=0             # Rosjava
@@ -215,7 +236,8 @@ shift $((OPTIND-1))
 [ "$1" = "--" ] && shift
 
 ##################################################### Do it
-prereqs
+virtualenv
+
 
 # recompile rosjava and nengoros by default
 if [ $R = "0" -a $N = "0" -a $U = "0" ]; then
