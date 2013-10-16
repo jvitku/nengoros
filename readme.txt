@@ -40,6 +40,12 @@ Install scipy and numpy:
 
 =============================== INSTALLATION:
 
+Run:
+	./tool -unrf
+
+
+------------------------------ additional information
+
 There are two choices of installation:
 	-rosbased:
 		-use if you managed to install ROS infrastructure
