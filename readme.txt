@@ -47,7 +47,7 @@ Point ROS_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file
 	export ROS_PACKAGE_PATH=~/workspace
 	
 Download nengoros configs
-	git clone 
+	git clone https://github.com/jvitku/nengoros.git
 	
 Download and install selected packages (./tool -h)
 	./tool -unrf
