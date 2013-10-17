@@ -71,15 +71,30 @@ Download and install selected packages (./tool -h)
 	./tool -unrf
 
 
-* Additional information
 
+Updating:
+--------
+
+The script ./tool can be used for updating the entire multi-project from remote repositories. It does:
+	-determines type of installation
+	-removes .rosinstall file and creates new with information from *.rosinstall file
+	-updates all sub-projects from remote(s)
+
+run this:
+
+	./tool -u
+	
+	
+	
+Additional information
+-----------------------
 
 There are two choices of installation:
 	-rosbased:
 		-use if you managed to install ROS infrastructure
 	-standalone:
 		-does not require any other ROS packages
-		
+
 Choose which version to use, e.g. for standalone (creates .rosinstal file):
 
 	wstool init -j8 . standalone.rosinstall
@@ -95,19 +110,3 @@ Run the tool script:
 For more useful features, run:
 
 	./tool -h
-	
-
-
-Updating:
---------
-
-The script ./tool can be used for updating the entire multi-project from remote repositories. It does:
-	-determines type of installation
-	-removes .rosinstall file and creates new with information from *.rosinstall file
-	-updates all sub-projects from remote(s)
-
-run this:
-
-	./tool -u
-	
-	
