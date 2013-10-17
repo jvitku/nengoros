@@ -5,8 +5,9 @@ NengoRos
 This is Nengo-ros, a tool for simulating large-scale hybrid neural systems by Jaroslav Vitku, see: http://nengoros.wordpress.com (temporary website Alife group on CTU in Prague: http://artificiallife.co.nf/ ). 
 
 The resulting system mainly fuses these following main systems (all credit to their authors) :
- 	-Nengo ( http://nengo.ca/ ) 
-	-and modified version of ROSjava core ( http://wiki.ros.org/rosjava ), which is independent of ROS installation.
+
+* Nengo ( http://nengo.ca/ ) 
+* and modified version of ROSjava core ( http://wiki.ros.org/rosjava ), which is independent of ROS installation.
 
 
 
@@ -16,22 +17,26 @@ Download additional python-based ROS tool and init it:
 
 	pip install -U wstool
 	
-		-or download and "python setup.py install" them from here https://github.com/vcstools/
-		-or "sudo apt-get install python-wstool" on linux
+* 		or download and "python setup.py install" them from here https://github.com/vcstools/
+* 		or "sudo apt-get install python-wstool" on linux
 
 Create python virtualenv called nengoros:
 
 download fortran
+
 	brew install gfortran
 
 download virtualenv and wrapper
+
 	sudo pip install virtualenv
 	sudo pip install virtualenvwrapper
 
 create ~/.virtualenvs directory
+
 	source /usr/local/bin/virtualenvwrapper.sh 
 	
 create your virtualenv
+
 	mkvirtualenv nengoros
 	source ~/.virtualenvs/nengoros/bin/activate
  
@@ -40,6 +45,7 @@ create your virtualenv
 
 
 Install scipy and numpy:
+
 	pip install numpy	
 	pip install scipy
 
@@ -48,15 +54,19 @@ Installation:
 --------------
 
 Make folder with workspace:
+
 	mkdir -p ~/workspace && cd ~/workspace
 	
 Point ROS\_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file )
+
 	export ROS\_PACKAGE\_PATH=~/workspace
 	
 Download nengoros configs
+
 	git clone https://github.com/jvitku/nengoros.git
 	
 Download and install selected packages (./tool -h)
+
 	cd nengoros
 	./tool -unrf
 
@@ -71,17 +81,19 @@ There are two choices of installation:
 		-does not require any other ROS packages
 		
 Choose which version to use, e.g. for standalone (creates .rosinstal file):
+
 	wstool init -j8 . standalone.rosinstall
 
 Run the tool script:
+
 	./tool
-	
-	this will:
+*	this will:
 		-compile rosjava_core and install it into ~/.m2 repository
 		-compile and install other nengoros components
 		 	- e.g. install jroscore intl ~/.m2 repo and as an application under jroscore/
 
 For more useful features, run:
+
 	./tool -h
 	
 
@@ -95,6 +107,7 @@ The script ./tool can be used for updating the entire multi-project from remote 
 	-updates all sub-projects from remote(s)
 
 run this:
+
 	./tool -u
 	
 	
