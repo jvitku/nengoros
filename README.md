@@ -71,7 +71,7 @@ Download and install selected packages (./tool -h)
 	./tool -unrf
 
 
-#Additional information
+* Additional information
 
 
 There are two choices of installation:
