@@ -1,12 +1,17 @@
+NengoRos
+=========
+
+
 This is Nengo-ros, a tool for simulating large-scale hybrid neural systems by Jaroslav Vitku, see: http://nengoros.wordpress.com (temporary website Alife group on CTU in Prague: http://artificiallife.co.nf/ ). 
 
-The resulting system is composed of:
+The resulting system mainly fuses these following main systems (all credit to their authors) :
  	-Nengo ( http://nengo.ca/ ) 
 	-and modified version of ROSjava core ( http://wiki.ros.org/rosjava ), which is independent of ROS installation.
 
 
-=============================== PREREQUISITES:
 
+Prerequisites:
+-------------
 Download additional python-based ROS tool and init it:
 
 	pip install -U wstool
@@ -38,13 +43,15 @@ Install scipy and numpy:
 	pip install numpy	
 	pip install scipy
 
-=============================== INSTALLATION:
+
+Installation:
+--------------
 
 Make folder with workspace:
 	mkdir -p ~/workspace && cd ~/workspace
 	
-Point ROS_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file )
-	export ROS_PACKAGE_PATH=~/workspace
+Point ROS\_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file )
+	export ROS\_PACKAGE\_PATH=~/workspace
 	
 Download nengoros configs
 	git clone https://github.com/jvitku/nengoros.git
@@ -54,7 +61,8 @@ Download and install selected packages (./tool -h)
 	./tool -unrf
 
 
------------------------------- additional information
+#Additional information
+
 
 There are two choices of installation:
 	-rosbased:
@@ -78,7 +86,9 @@ For more useful features, run:
 	
 
 
-=============================== UPDATE:
+Updating:
+--------
+
 The script ./tool can be used for updating the entire multi-project from remote repositories. It does:
 	-determines type of installation
 	-removes .rosinstall file and creates new with information from *.rosinstall file

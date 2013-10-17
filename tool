@@ -63,9 +63,9 @@ update(){
 
 	    if [ ! -z "$STD" -a "$STD" != " " ]; then
 	        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-	        echo "   XXXXXXX Re-initializing workspace with standalone.rosinstall file"
+	        echo "   XXXXXXX Re-initializing workspace with complete.rosinstall file"
 	        echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
-	        wstool init -j8 . standalone.rosinstall
+	        wstool init -j8 . complete.rosinstall
 	    else
 	        echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
 	        echo "   XXXXXXX Re-initializing workspace with rosbased.rosinstall file"
@@ -76,7 +76,7 @@ update(){
 		echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
         echo "   XXXXXXX Workspace (.rosinstall) not found! -> initializing workspace with standalone version"
         echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
-        wstool init -j8 . standalone.rosinstall
+        wstool init -j8 . complete.rosinstall
 	fi
 
     echo "\nNote: if your repositories were not all up-to date, consider re-running this with -nr arguments.\n"

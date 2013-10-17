@@ -10,6 +10,8 @@ geometry/
 ros_comm/
 std_msgs/
 custom_msgs
+rl
+logic
 
 # Gradle hashes
 taskArtifacts/
