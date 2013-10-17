@@ -57,9 +57,9 @@ Make folder with workspace:
 
 	mkdir -p ~/workspace && cd ~/workspace
 	
-Point ROS\_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file )
+Point the ROS\_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file )
 
-	export ROS\_PACKAGE\_PATH=~/workspace
+	export ROS_PACKAGE_PATH=~/workspace
 	
 Download nengoros configs
 
