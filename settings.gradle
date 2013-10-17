@@ -11,6 +11,10 @@ in order to generate interfaces for new custom messages, which are potentially c
 in other ROS(java) packages used.
 */
 
+// complete version adds these sub-projects:
+include 'logic:gates'
+
+// standalone version:
 include 'jroscore', 'nengo:simulator', 'nengo:simulator-ui'
 
 /*
