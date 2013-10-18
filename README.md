@@ -92,14 +92,14 @@ Additional information
 There are two choices of installation:
 
 ####complete:
-*does not require any other ROS packages and contains ALL additional rosjava nodes (other can be added) and these are supported by nengo GUI
+*	does not require any other ROS packages and contains ALL additional rosjava nodes (other can be added) and these are supported by nengo GUI
 ####rosbased:
-*use if you managed to install ROS infrastructure
+*	use if you managed to install ROS infrastructure
 		
 ####standalone:   
-*this is similar to "complete" without additional rosjava nodes
-*this version is now deprecated, the nengo GUI layout requires nodes contained in "complete.rosinstall" version
-*use if you managed to install ROS infrastructure and you do not want all nodes 
+*	this is similar to "complete" without additional rosjava nodes
+*	this version is now deprecated, the nengo GUI layout requires nodes contained in "complete.rosinstall" version
+*	use if you managed to install ROS infrastructure and you do not want all nodes 
 
 
 		
