@@ -91,17 +91,21 @@ Additional information
 
 There are two choices of installation:
 
-	-complete:
-		-does not require any other ROS packages and contains ALL additional rosjava nodes (other can be added) and these are supported by nengo GUI
-	-rosbased:
-		-use if you managed to install ROS infrastructure
+####complete:
+*does not require any other ROS packages and contains ALL additional rosjava nodes (other can be added) and these are supported by nengo GUI
+####rosbased:
+*use if you managed to install ROS infrastructure
 		
-	-rosbased:   this version is now deprecated, the nengo GUI layout requires nodes contained in "complete.rosinstall" version
-		-use if you managed to install ROS infrastructure
-		
-Choose which version to use, e.g. for standalone (creates .rosinstal file):
+####standalone:   
+*this is similar to "complete" without additional rosjava nodes
+*this version is now deprecated, the nengo GUI layout requires nodes contained in "complete.rosinstall" version
+*use if you managed to install ROS infrastructure and you do not want all nodes 
 
-	wstool init -j8 . standalone.rosinstall
+
+		
+Choose which version to use, e.g. for complete (creates .rosinstal file):
+
+	wstool init -j8 . complete.rosinstall
 
 Run the tool script:
 
