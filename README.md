@@ -112,9 +112,9 @@ Run the tool script:
 
 	./tool
 *	this will:
-		-compile rosjava_core and install it into ~/.m2 repository
-		-compile and install other nengoros components
-		 	- e.g. install jroscore intl ~/.m2 repo and as an application under jroscore/
+*	compile rosjava_core and install it into ~/.m2 repository
+*	compile and install other nengoros components (e.g. install jroscore intl ~/.m2 repo and as an application under jroscore)
+
 
 For more useful features, run:
 
