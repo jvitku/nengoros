@@ -209,7 +209,7 @@ fi
 echo "ROS_PACKAGE_PATH="$ROS_PACKAGE_PATH
 
 ##################################################### Parse command line
-BASE=$PWD       # remember our place
+BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" # we are here
 R=0             # Rosjava
 N=0             # Nengoros
 F=0             # Force == do not run tests
