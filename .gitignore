@@ -13,6 +13,7 @@ custom_msgs
 rl
 logic
 demoNodes
+projectTemplate
 
 # Gradle hashes
 taskArtifacts/

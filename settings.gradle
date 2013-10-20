@@ -12,7 +12,7 @@ in other ROS(java) packages used.
 */
 
 // complete version adds these sub-projects:
-include 'logic:gates'
+include 'logic:gates', 'projectTemplate'
 
 // standalone version:
 include 'jroscore', 'nengo:simulator', 'nengo:simulator-ui'
