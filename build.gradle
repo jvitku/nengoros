@@ -11,7 +11,7 @@ allprojects {
 
     // task to create gradle wrapper (used only once) [gradle wrapper]
     task wrapper(type: Wrapper) {
-        gradleVersion = '1.5'
+        gradleVersion = '1.7'
     }
     
     // This configures the project to search for Maven libraries (rosjava: bootstrap, messages, core)
