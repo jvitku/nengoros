@@ -93,6 +93,7 @@ There are two choices of installation:
 
 ####complete:
 *	does not require any other ROS packages and contains ALL additional rosjava nodes (other can be added) and these are supported by nengo GUI
+* 	this is preferred and the most stable version
 
 ####rosbased:
 *	use if you managed to install ROS infrastructure
