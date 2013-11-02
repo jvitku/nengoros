@@ -18,8 +18,8 @@ allprojects {
     repositories {
       mavenLocal()
       maven {
-    	//        url 'http://robotbrains.hideho.org/nexus/content/groups/ros-public'
-    			url 'https://maven-us.nuxeo.org/nexus/content/repositories/public'
+            //        url 'http://robotbrains.hideho.org/nexus/content/groups/ros-public'
+                            url 'https://maven-us.nuxeo.org/nexus/content/repositories/public'
       }
     }
     
@@ -43,6 +43,3 @@ subprojects {
 }
 
 defaultTasks 'install'
-
-
-

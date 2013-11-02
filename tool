@@ -146,8 +146,9 @@ nengoros(){
     echo "   XXXXXXX Building and installing the Nengoros multiproject"
     echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
     
-    cp nengo/simulator-ui/rosjava.build.gradle nengo/simulator-ui/build.gradle     
-    cp nengo/simulator/rosjava.build.gradle nengo/simulator/build.gradle     
+    # now symlinked
+    #cp nengo/simulator-ui/rosjava.build.gradle nengo/simulator-ui/build.gradle     
+    #cp nengo/simulator/rosjava.build.gradle nengo/simulator/build.gradle     
 
     if [ $1 = "1" ]; then
         ./gradlew install eclipse -x test
@@ -161,9 +162,9 @@ nengoros(){
     rm nengo/.project
     rm .project
     
-    # to force the user to use build.gradle.rosjava
-    rm nengo/simulator-ui/build.gradle 
-    rm nengo/simulator/build.gradle 
+    # now symlinked
+    #rm nengo/simulator-ui/build.gradle 
+    #rm nengo/simulator/build.gradle 
 }
 
 
