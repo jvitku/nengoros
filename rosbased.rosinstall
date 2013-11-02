@@ -1,4 +1,7 @@
 # List of packages necessary used for ROS-hased version of rosjava_core
+#
+# Note: this version is not maintained currently, use complete.rosinstall instead
+#
 # Author: Jaroslav Vitku
 #
 # TODO, test this on Ubuntu/OS X
