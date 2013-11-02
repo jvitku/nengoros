@@ -153,7 +153,7 @@ nengoros(){
     if [ $1 = "1" ]; then
         ./gradlew install eclipse -x test
     else
-        # TODO somehow may not be running tests
+        # TODO somehow may not be running tests, may be UP-TO-DATE
         ./gradlew install eclipse test
     fi
 
