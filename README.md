@@ -64,7 +64,7 @@ Point the ROS\_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc
 Download nengoros configs
 
 	git clone https://github.com/jvitku/nengoros.git
-	git checkout master-v0.0.1
+
 	
 Download and install selected packages (./tool -h)
 
