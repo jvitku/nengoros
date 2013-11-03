@@ -26,38 +26,38 @@ Together, these packages provide mostly platform-independent **tool for simulati
 
 Prerequisites:
 -------------
-1. Download additional python-based ROS **wstool** and init it:
+#### Download additional python-based ROS **wstool** and init it:
 
-		pip install -U wstool
+	pip install -U wstool
 	
 
-	* or download and "python setup.py install" them from [here](https://github.com/vcstools/)
-	* or "sudo apt-get install python-wstool" on linux
+* or download and "python setup.py install" them from [here](https://github.com/vcstools/)
+* or "sudo apt-get install python-wstool" on linux
 
 
  
-3. Create python **virtualenv** called nengoros (optional):
+#### Create python **virtualenv** called nengoros (optional):
 
-	* download fortran
+* download fortran
 
 		brew install gfortran
 
-	* download virtualenv and wrapper
+* download virtualenv and wrapper
 
-			sudo pip install virtualenv
-			sudo pip install virtualenvwrapper
+		sudo pip install virtualenv
+		sudo pip install virtualenvwrapper
 
-	* create ~/.virtualenvs directory
+* create ~/.virtualenvs directory
 
-			source /usr/local/bin/virtualenvwrapper.sh 
+		source /usr/local/bin/virtualenvwrapper.sh 
 	
-	* create your virtualenv
+* create your virtualenv
 
-			mkvirtualenv nengoros
-			source ~/.virtualenvs/nengoros/bin/activate
+		mkvirtualenv nengoros
+		source ~/.virtualenvs/nengoros/bin/activate
  
 
-4. Install **scipy** and **numpy** (also optional):
+#### Install **scipy** and **numpy** (also optional):
 
 		pip install numpy	
 		pip install scipy
