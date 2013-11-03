@@ -74,7 +74,7 @@ update(){
 	    fi
 	else
 		echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-        echo "   XXXXXXX Workspace (.rosinstall) not found! -> initializing workspace with standalone version"
+        echo "   XXXXXXX Workspace (.rosinstall) not found! -> initializing workspace with complete version"
         echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
         wstool init -j8 . complete.rosinstall
 	fi
