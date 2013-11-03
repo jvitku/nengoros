@@ -12,7 +12,7 @@ in other ROS(java) packages used.
 */
 
 // complete version adds these sub-projects:
-include 'logic:gates', 'projectTemplate', 'demonodes:pubsub'
+include 'logic:gates', 'projectTemplate', 'demonodes:basic'
 // howto: include '[folderName]:[subFolderName]:projectName=folderName'  (no full package name involved here)
 
 
