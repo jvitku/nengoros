@@ -12,7 +12,7 @@ std_msgs/
 custom_msgs
 rl
 logic
-demoNodes
+demonodes
 projectTemplate
 
 # Gradle hashes
