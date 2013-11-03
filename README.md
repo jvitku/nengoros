@@ -30,16 +30,17 @@ Prerequisites:
 
 		pip install -U wstool
 	
-	* 		or download and "python setup.py install" them from [here](https://github.com/vcstools/)
-	* 		or "sudo apt-get install python-wstool" on linux
+
+	* or download and "python setup.py install" them from [here](https://github.com/vcstools/)
+	* or "sudo apt-get install python-wstool" on linux
 
 
  
-2. Create python **virtualenv** called nengoros (optional):
+3. Create python **virtualenv** called nengoros (optional):
 
 	* download fortran
 
-			brew install gfortran
+		brew install gfortran
 
 	* download virtualenv and wrapper
 
@@ -56,7 +57,7 @@ Prerequisites:
 			source ~/.virtualenvs/nengoros/bin/activate
  
 
-3. Install **scipy** and **numpy** (also optional):
+4. Install **scipy** and **numpy** (also optional):
 
 		pip install numpy	
 		pip install scipy
