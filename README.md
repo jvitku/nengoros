@@ -26,7 +26,7 @@ Together, these packages provide mostly platform-independent **tool for simulati
 
 Prerequisites:
 -------------
-#### Download additional python-based ROS **wstool** and init it:
+##### Download additional python-based ROS **wstool** and init it:
 
 	pip install -U wstool
 	
@@ -36,7 +36,7 @@ Prerequisites:
 
 
  
-#### Create python **virtualenv** called nengoros (optional):
+##### Create python **virtualenv** called nengoros (optional):
 
 * download fortran
 
@@ -57,7 +57,7 @@ Prerequisites:
 		source ~/.virtualenvs/nengoros/bin/activate
  
 
-#### Install **scipy** and **numpy** (also optional):
+##### Install **scipy** and **numpy** (also optional):
 
 		pip install numpy	
 		pip install scipy
@@ -110,12 +110,12 @@ To launch jython script, open Nengo GUI, open command line interface and write c
 
 There are two choices how to learn with NengoROS:
 
-#### Learn with bigger **Nengo part**:
+#### Learn with Nengo part:
 	
 * All demos of original Nengo simulator are unchanged and can be found under `nengo/simulator-ui/demo`
 * To see detailed information about these demo, go to [Nengo demos](http://nengo.ca/docs/html/tutorial.html) from Waterloo University.
 
-#### Learn with **Nengo-ROS part**:
+#### Learn with Nengo-ROS part:
 
 * These simple demos show how the modified Nengo can employ ROS nodes in the simulation.
 * The demo scripts can be found under: `nengo/simulatori-ui/nr-demo`
