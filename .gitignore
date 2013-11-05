@@ -23,3 +23,6 @@ taskArtifacts/
 
 # linux
 *~
+
+pattern
+sequence
