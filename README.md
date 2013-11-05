@@ -85,7 +85,7 @@ Installation:
 		./tool -unrf
 
 
-* In Eclipse, import all auto-generated projects from nengoros folder (it may is necessary to check check-box `search for nested projects`, and after importing delete the projectTemplate), clean & build them in Eclipse. 
+* In Eclipse, import all auto-generated projects from nengoros folder (it is necessary to check the check-box `search for nested projects`, and after importing delete the projectTemplate), clean & build them in Eclipse. 
 
 Running
 ---------
