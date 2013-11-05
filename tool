@@ -53,7 +53,7 @@ update(){
     echo "   XXXXXXX Updating Nengo-ros project from github"
     echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 
-    git pull origin
+    git pull origin feature-use-time
 
     if [ -f .rosinstall ]; then 
 	    # Check which version is installed: rosbased or standalone?

@@ -85,7 +85,7 @@ Installation:
 		./tool -unrf
 
 
-* In Eclipse, import all auto-generated projects from nengoros folder (most importantly `nengo/simulator` & `nengo/simulator-ui`), clean & build them in Eclipse. 
+* In Eclipse, import all auto-generated projects from nengoros folder (it is necessary to check the check-box `search for nested projects`, and after importing delete the projectTemplate), clean & build them in Eclipse. 
 
 Running
 ---------
