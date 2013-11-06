@@ -18,7 +18,7 @@
 - git: {local-name: custom_msgs, uri: 'https://github.com/jvitku/custom_msgs.git', version: master}
 
 # Optional "external" nodes:
-- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: master}
+- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: feature-use-time}
 - git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: feature-use-time}  #########
 
 # Not implemented/used so far
