@@ -22,6 +22,6 @@
 - git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: master-v0.0.1}  #########
 
 # Not implemented/used so far
-- git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: master-v0.0.1}
-- git: {local-name: sequence, uri: 'https://github.com/jvitku/sequence.git', version: master-v0.0.1}
-- git: {local-name: pattern, uri: 'https://github.com/jvitku/pattern.git', version: master-v0.0.1}
+- git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: master}
+- git: {local-name: sequence, uri: 'https://github.com/jvitku/sequence.git', version: master}
+- git: {local-name: pattern, uri: 'https://github.com/jvitku/pattern.git', version: master}
