@@ -54,7 +54,7 @@ update(){
     echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
 
     #git pull origin feature-use-time
-	git pull origin master-v0.0.1
+	git pull origin master
 
     if [ -f .rosinstall ]; then 
 	    # Check which version is installed: rosbased or standalone?
