@@ -13,15 +13,15 @@
 - git: {local-name: rosjava_core, uri: 'https://github.com/jvitku/rosjava_core.git', version: nr-hydro-devel}
 
 # Frequently changed "core" repositories:
-- git: {local-name: jroscore, uri: 'https://github.com/jvitku/jroscore.git', version: feature-use-time}   ##########
-- git: {local-name: nengo, uri: 'https://github.com/jvitku/nengo_1.4.git', version: feature-use-time}     ##########
+- git: {local-name: jroscore, uri: 'https://github.com/jvitku/jroscore.git', version: master-v0.0.1}   ##########
+- git: {local-name: nengo, uri: 'https://github.com/jvitku/nengo_1.4.git', version: nengoros-master-v0.0.1}     ##########
 - git: {local-name: custom_msgs, uri: 'https://github.com/jvitku/custom_msgs.git', version: master}
 
 # Optional "external" nodes:
-- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: feature-use-time}
-- git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: feature-use-time}  #########
+- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: master-v0.0.1}
+- git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: master-v0.0.1}  #########
 
 # Not implemented/used so far
-- git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: master}
-- git: {local-name: sequence, uri: 'https://github.com/jvitku/sequence.git', version: master}
-- git: {local-name: pattern, uri: 'https://github.com/jvitku/pattern.git', version: master}
+- git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: master-v0.0.1}
+- git: {local-name: sequence, uri: 'https://github.com/jvitku/sequence.git', version: master-v0.0.1}
+- git: {local-name: pattern, uri: 'https://github.com/jvitku/pattern.git', version: master-v0.0.1}
