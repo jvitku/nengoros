@@ -18,7 +18,7 @@ include 'logic:gates', 'demonodes:basic' //,'projectTemplate'
 
 
 // standalone version:
-include 'jroscore', 'nengo:simulator', 'nengo:simulator-ui'
+include 'jroscore', 'jrosparam', 'nengo:simulator', 'nengo:simulator-ui'
 
 /*
 // @see Note1.

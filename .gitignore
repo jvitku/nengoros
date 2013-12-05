@@ -14,6 +14,7 @@ rl
 logic
 demonodes
 projectTemplate
+jrosparam
 
 # Gradle hashes
 taskArtifacts/
