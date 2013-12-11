@@ -120,7 +120,7 @@ There are two choices how to learn with NengoROS:
 * These simple demos show how the modified Nengo can employ ROS nodes in the simulation.
 * The demo scripts can be found under: `nengo/simulatori-ui/nr-demo`
 * The Nengoros currently features sub-project `demonodes`, where all demos are placed, see its [readme](https://github.com/jvitku/demonodes) for all information.
-* To se more information (TODO) go to [Nengoros tutorials](http://nengoros.wordpress.com/tutorials/). 
+* To se more information go to [Nengoros tutorials](http://nengoros.wordpress.com/tutorials/). 
 
 
 
