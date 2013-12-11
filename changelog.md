@@ -5,6 +5,11 @@ This document summarizes changes problems and and TODOs.
 Changelog
 -----------
 
+###master-v0.0.2
+
+* Added three possibilities how to sync time between Nengo and ROS nodes: TimeMaster, TimeIgnore and TimeSlave. These are used in the `ca.nengo.util.impl.NodeThreadPool.step()`. 
+
+* Added demos representing time synchronization in the project demonodes/basic, the corresponding python scripts are located under `nr-demo/basic/time*`
 
 ###master-v0.0.1
 
@@ -12,7 +17,7 @@ Changelog
 
 * Includes demos on rosjava, ROS nodes and native process.
 
-* Communication with ROS nodes is synchronous or asyncnrhonous
+* Communication with ROS nodes is synchronous or asynchronous
 
 
 TODO
@@ -20,15 +25,12 @@ TODO
 
 ### Nengo
 
-* ca.nengo.util.implNodeThreadPool: waits for syncedUnits (that is sync. ROS nodes), ask for resending the message?
-
-* third type of communication: send time marks (starttime, stoptime) as in the Nengo simulator
+* `ca.nengo.util.implNodeThreadPool`: waits for syncedUnits (that is sync. ROS nodes), ask for resending the message?
 
 
 ### Demos
 
 * make demo how to write own RosBackend for support of custom ROS messages
-
 
 
 Notes
@@ -42,8 +44,11 @@ Locations of Some Useful Files
 ### Nengo Simulator Core:
 
 * everything is under `simulator` project
-* waiting for synchedUnits (synchronously running ROS ndodes) ca.nengo.util.implNodeThreadPool , or ca.nengo.sim.impl.LocalSimulator. 
-* checking how the nodes are called to run their simulation step: ca.nengo.sim.impl.LocalSimulator.step(). 
+* waiting for synchedUnits (synchronously running ROS nodes) `ca.nengo.util.impl.NodeThreadPool.step()`. 
+* checking how the nodes are called to run their simulation step: `ca.nengo.sim.impl.LocalSimulator.step()`.
+* time synchronization between Nengo and ROS: `ca.nengo.util.impl.NodeThreadPool.step()`.
+
+* core was modified to publish simulated time across the ROS network, see: `ca.nengo.util.impl.NodeThreadPool.step()`.
 
 ### Nengoros Communication - Make Custom Messages
 
