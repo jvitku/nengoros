@@ -10,7 +10,7 @@
 - git: {local-name: common_msgs, uri: 'https://github.com/ros/common_msgs.git', version: hydro-devel}
 - git: {local-name: geometry, uri: 'https://github.com/ros/geometry.git', version: hydro-devel}
 - git: {local-name: std_msgs, uri: 'https://github.com/ros/std_msgs.git', version: groovy-devel}
-- git: {local-name: rosjava_core, uri: 'https://github.com/jvitku/rosjava_core.git', version: nr-hydro-devel}
+- git: {local-name: rosjava_core, uri: 'https://github.com/jvitku/rosjava_core.git', version: nr-hydro-feature-params}
 
 # Frequently changed "core" repositories:
 - git: {local-name: jroscore, uri: 'https://github.com/jvitku/jroscore.git', version: master} 
