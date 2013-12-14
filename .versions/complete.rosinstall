@@ -4,26 +4,22 @@
 #
 # Author: Jaroslav Vitku
 #
-
 # unchanged (ROS) repositories:
+
 - git: {local-name: ros_comm, uri: 'https://github.com/ros/ros_comm.git', version: groovy-devel}
 - git: {local-name: common_msgs, uri: 'https://github.com/ros/common_msgs.git', version: hydro-devel}
 - git: {local-name: geometry, uri: 'https://github.com/ros/geometry.git', version: hydro-devel}
 - git: {local-name: std_msgs, uri: 'https://github.com/ros/std_msgs.git', version: groovy-devel}
-- git: {local-name: rosjava_core, uri: 'https://github.com/jvitku/rosjava_core.git', version: nr-hydro-feature-params}
+- git: {local-name: rosjava_core, uri: 'https://github.com/jvitku/rosjava_core.git', version: nr-hydro-master}
 
 # Frequently changed "core" repositories:
-- git: {local-name: jroscore, uri: 'https://github.com/jvitku/jroscore.git', version: master} 
-# merged to jroscore
-#- git: {local-name: jrosparam, uri: 'https://github.com/jvitku/jrosutils.git', version: master} 
-# merged to jroscore
-#- git: {local-name: jrosparam, uri: 'https://github.com/jvitku/jrosparam.git', version: master} 
-- git: {local-name: nengo, uri: 'https://github.com/jvitku/nengo_1.4.git', version: master}     
+- git: {local-name: jroscore, uri: 'https://github.com/jvitku/jroscore.git', version: nengoros-master-v0.0.3} 
+- git: {local-name: nengo, uri: 'https://github.com/jvitku/nengo_1.4.git', version: nengoros-master-v0.0.3}     
 - git: {local-name: custom_msgs, uri: 'https://github.com/jvitku/custom_msgs.git', version: master}
 
 # Optional "external" nodes:
-- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: master}
-- git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: master}
+- git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: nengoros-master-v0.0.3}
+- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: master-v0.0.1}
 
 # Not implemented/used so far
 - git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: master}
