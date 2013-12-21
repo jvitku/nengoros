@@ -21,7 +21,6 @@
 
 usage()
 {
-
     echo "\nThis script installs rosjava_core and/or nengoros project tree. Usage:\n"
     echo "-h|help|?     this help"
     echo "-r            (re-)install rosjava_core into ~/.m2/repository (e.g. if you added new message files)"
