@@ -5,6 +5,9 @@ This document summarizes changes problems and and TODOs.
 Changelog
 -----------
 
+###master-v0.0.4
+* Added support for the [my modification](https://github.com/jvitku/vivae) of the [Vivae](http://cig.felk.cvut.cz/projects/robo/) simulator. More precisely: the old version of Vivae support was removed from the Nengoros and placed into the `vivae/vivaeplugin` project.
+
 ###master-v0.0.2
 
 * Added three possibilities how to sync time between Nengo and ROS nodes: TimeMaster, TimeIgnore and TimeSlave. These are used in the `ca.nengo.util.impl.NodeThreadPool.step()`. 
@@ -22,6 +25,18 @@ Changelog
 
 TODO
 ---------------
+
+### Nengoros Project Dependencies
+
+* TODO add better support for plugins, there should be two main scenarios: 
+
+	* everything as project dependencies (source) (almost current situation) 
+	* download everything from maven repository as jars
+
+* Problem with the Vivae plugin:
+
+	* Vivae has plugin which depends on Nengoros AbstractNeuralModule => dependency on Nengo. But in order to install Nengo, the vivae Jar file should be copied into lib folder. 
+	* In the current situation, the Vivae has to be compiled (which creates `vivae/vivae[plugin&simulator]/build/libs/*jar`) and these jars are then copied as libraries
 
 ### Nengo
 
