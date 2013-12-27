@@ -1,20 +1,20 @@
 .DS_Store
 .metadata
 .rosinstall
-build/
-jroscore/
-nengo/
-rosjava_core/
-common_msgs/
-geometry/
-ros_comm/
-std_msgs/
-custom_msgs
-rl
-logic
-demonodes
-projectTemplate
-jrosparam
+/build/
+/jroscore/
+/nengo/
+/rosjava_core/
+/common_msgs/
+/geometry/
+/ros_comm/
+/std_msgs/
+/custom_msgs
+/rl
+/logic
+/demonodes
+/projectTemplate
+/jrosparam
 
 # Gradle hashes
 taskArtifacts/
@@ -25,11 +25,11 @@ taskArtifacts/
 # linux
 *~
 
-pattern
-sequence
+/pattern
+/sequence
 
-jrosutils
-jrosparam
+/jrosutils
+/jrosparam
 
 
 ################ gh-pages ignore:
@@ -43,8 +43,8 @@ gradlew.bat
 tool
 settings.gradle
 
-vivae/
-vivae
+/vivae/
+
 
 
 .versions/
