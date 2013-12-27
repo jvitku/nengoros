@@ -42,7 +42,7 @@ complete.rosinstall
 build.gradle
 changelog.md
 gradle/
-gradle
+gradlew
 gradlew.bat
 tool
 settings.gradle
