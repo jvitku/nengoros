@@ -22,7 +22,10 @@ Together, these packages provide mostly platform-independent **tool for simulati
 * direct robot control
 * ...and much more.
 
+Javadocs
+-------------
 
+Javadocs for the nengo/simulator can be found [here](nengo-simulator/javadoc/index.html).
 
 Prerequisites:
 -------------
