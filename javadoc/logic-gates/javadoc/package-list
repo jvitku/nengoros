@@ -1,0 +1,7 @@
+org.hanns.logic.crisp.gates
+org.hanns.logic.crisp.gates.impl
+org.hanns.logic.fuzzy.gates
+org.hanns.logic.fuzzy.gates.impl
+org.hanns.logic.fuzzy.membership
+org.hanns.logic.fuzzy.membership.impl
+org.hanns.logic.gates
