@@ -1,0 +1,48 @@
+.DS_Store
+.metadata
+.rosinstall
+build/
+jroscore/
+nengo/
+rosjava_core/
+common_msgs/
+geometry/
+ros_comm/
+std_msgs/
+custom_msgs
+rl
+logic
+demonodes
+projectTemplate
+jrosparam
+
+# Gradle hashes
+taskArtifacts/
+# eclipse
+.settings
+
+
+# linux
+*~
+
+pattern
+sequence
+
+jrosutils
+jrosparam
+
+
+vivae/
+vivae
+
+
+################ gh-pages ignore:
+
+complete.rosinstall
+build.gradle
+changelog.md
+gradle/
+gradle
+gradlew.bat
+tool
+settings.gradle
