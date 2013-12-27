@@ -32,10 +32,6 @@ jrosutils
 jrosparam
 
 
-vivae/
-vivae
-
-
 ################ gh-pages ignore:
 
 complete.rosinstall
@@ -46,3 +42,12 @@ gradlew
 gradlew.bat
 tool
 settings.gradle
+
+vivae/
+vivae
+
+
+.versions/
+.gradle
+.classpath
+

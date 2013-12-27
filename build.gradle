@@ -1,0 +1,45 @@
+// @author Jaroslav Vitku [vitkujar@fel.cvut.cz]
+
+// [code] marks the corresponding command (task)
+
+
+allprojects {
+    
+    // group of projects and its version
+    group 'nengoros'
+    version = '0.0.4-SNAPSHOT'
+
+    // task to create gradle wrapper (used only once) [gradle wrapper]
+    task wrapper(type: Wrapper) {
+        gradleVersion = '1.7'
+    }
+    
+    // This configures the project to search for Maven libraries (rosjava: bootstrap, messages, core)
+    repositories {
+      mavenLocal()
+      maven {
+            //        url 'http://robotbrains.hideho.org/nexus/content/groups/ros-public'
+                            url 'https://maven-us.nuxeo.org/nexus/content/repositories/public'
+      }
+    }
+    
+    if (name != 'docs') {
+        
+        // java support for gradle [no command]
+        apply plugin: 'java'
+
+        // Create the Java (jar) library from this project. [./gradlew install]
+        apply plugin: 'maven'
+
+        // create the Eclipse project [./gradlew eclipse]
+        apply plugin: 'eclipse'
+
+        sourceCompatibility = 1.6
+        targetCompatibility = 1.6
+    }
+}
+
+subprojects {
+}
+
+defaultTasks 'install'

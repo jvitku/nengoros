@@ -25,9 +25,18 @@ Together, these packages provide mostly platform-independent **tool for simulati
 Javadocs
 -------------
 
-Nate that links in this section work only from the github page of this project on: [http://jvitku.github.io/nengoros/](http://jvitku.github.io/nengoros/).
 
-Javadocs for the nengo/simulator can be found [here](javadoc/nengo-simulator/javadoc/index.html).
+Nate that links in this section will be "browsable" only offline or from the github page of this project on: [http://jvitku.github.io/nengoros/](http://jvitku.github.io/nengoros/).
+
+* Documentation for the nengo/simulator project is here [here](javadoc/nengo-simulator/javadoc/index.html).
+* Documentation for the nengo/simulator-ui project is here [here](javadoc/nengo-simulator-ui/javadoc/index.html).
+
+Javadoc for sub-projects which are not available here can be generated from the particular project folder by the following command:
+
+	./gradlew javadoc
+
+Te resulting documentation will be placed under `[projectName]/build/doc/` folder.
+
 
 Prerequisites:
 -------------
