@@ -1,7 +1,9 @@
 NengoRos
 =========
 
-This is [Nengo-ros](http://nengoros.wordpress.com), a tool which merges [Nengo](https://github.com/ctn-waterloo/nengo_1.4) and [rosjava_core](https://github.com/rosjava/rosjava_core) in order to simulate large-scale hybrid neural systems capable of interfacing with real robotic systems. Official site of this project is: [http://nengoros.wordpress.com](http://nengoros.wordpress.com).
+Official site of this project: [http://nengoros.wordpress.com](http://nengoros.wordpress.com).
+
+This is Nengoros, a tool which merges [Nengo](https://github.com/ctn-waterloo/nengo_1.4) and [rosjava_core](https://github.com/rosjava/rosjava_core) in order to simulate large-scale hybrid neural systems capable of interfacing with real robotic systems. Official site of this project is: 
 
 Author Jaroslav Vitku, research under [Alife group]((http://artificiallife.co.nf/projects/) on [Department of Cybernetics](http://cyber.felk.cvut.cz/) on CTU in Prague. 
 
