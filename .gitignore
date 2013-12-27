@@ -2,19 +2,19 @@
 .metadata
 .rosinstall
 build/
-jroscore/
-nengo/
-rosjava_core/
-common_msgs/
-geometry/
-ros_comm/
-std_msgs/
-custom_msgs
-rl
-logic
-demonodes
-projectTemplate
-jrosparam
+/jroscore/
+/nengo/
+/rosjava_core/
+/common_msgs/
+/geometry/
+/ros_comm/
+/std_msgs/
+/custom_msgs
+/rl
+/logic
+/demonodes
+/projectTemplate
+/jrosparam
 
 # Gradle hashes
 taskArtifacts/
@@ -25,11 +25,11 @@ taskArtifacts/
 # linux
 *~
 
-pattern
-sequence
+/pattern/
+/sequence/
 
-jrosutils
-jrosparam
+/jrosutils/
+/jrosparam/
 
-vivae/
-vivae
+/vivae/
+

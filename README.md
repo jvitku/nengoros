@@ -27,8 +27,12 @@ Javadocs
 
 Nate that links in this section will be "browsable" only offline or from the github page of this project on: [http://jvitku.github.io/nengoros/](http://jvitku.github.io/nengoros/).
 
-* Documentation for the nengo/simulator project is here [here](javadoc/nengo-simulator/javadoc/index.html).
-* Documentation for the nengo/simulator-ui project is here [here](javadoc/nengo-simulator-ui/javadoc/index.html).
+* Nengo/simulator [project](javadoc/nengo/simulator/javadoc/index.html).
+* Nengo/simulator-ui [project](javadoc/nengo/simulator-ui/javadoc/index.html).
+* Demonodes/basic [project](javadoc/demonodes/basic/javadoc/index.html).
+* Logic/gates [project](javadoc/logic/gates/javadoc/index.html).
+* Vivae/vivaesimulator [project](javadoc/vivae/vivaesimulator/javadoc/index.html).
+* Vivae/vivaeplugin [project](javadoc/vivae/vivaeplugin/javadoc/index.html).
 
 Javadoc for sub-projects which are not available here can be generated from the particular project folder by the following command:
 
