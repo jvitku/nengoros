@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nengoros by jvitku</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Nengoros</h1>
+        <p>An open-source SW tool for simulating large-scale hybrid neural network systems. For more information, see http://nengoros.wordpress.com .</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/jvitku/nengoros" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/jvitku/nengoros/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/jvitku/nengoros/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="nengoros" class="anchor" href="#nengoros"><span class="octicon octicon-link"></span></a>NengoRos</h1>
+
+<p>Official site of this project: <a href="http://nengoros.wordpress.com">http://nengoros.wordpress.com</a>.</p>
+
+<p>This is Nengoros, a tool which merges <a href="https://github.com/ctn-waterloo/nengo_1.4">Nengo</a> and <a href="https://github.com/rosjava/rosjava_core">rosjava_core</a> in order to simulate large-scale hybrid neural systems capable of interfacing with real robotic systems. Official site of this project is: </p>
+
+<p>Author Jaroslav Vitku, research under <a>Alife group</a> on <a href="http://cyber.felk.cvut.cz/">Department of Cybernetics</a> on CTU in Prague. </p>
+
+<p>The simulator is composed of the following parts (all credits to their authors):</p>
+
+<ul>
+<li>
+<a href="http://nengo.ca/">Nengo simulator</a> - large scale neural simulations (original readme moved to <code>nengo/README_origNengo.rst</code>)</li>
+<li>
+<p><a href="http://wiki.ros.org/rosjava">Rosjava_core</a> - java-based implementation of ROS core</p>
+
+<p>-and potentially with some necessary ROS-components (e.g. <a href="http://wiki.ros.org/std_msgs">messages</a>) included</p>
+</li>
+</ul><p>Together, these packages provide mostly platform-independent <strong>tool for simulating hybrid neural systems</strong> usable e.g. for experiments with e.g.:</p>
+
+<ul>
+<li>cognitive modeling</li>
+<li>neuro-evolution</li>
+<li>running simulations of hybrid modular systems composed of arbitrary reusable (<a href="http://wiki.ros.org/">ROS</a>) nodes</li>
+<li>direct robot control</li>
+<li>...and much more.</li>
+</ul><h2>
+<a name="javadocs" class="anchor" href="#javadocs"><span class="octicon octicon-link"></span></a>Javadocs</h2>
+
+<p>Nate that links in this section work only from the github page of this project on: <a href="http://jvitku.github.io/nengoros/">http://jvitku.github.io/nengoros/</a>.</p>
+
+<p>Javadocs for the nengo/simulator can be found <a href="javadoc/nengo-simulator/javadoc/index.html">here</a>.</p>
+
+<h2>
+<a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites:</h2>
+
+<h5>
+<a name="download-additional-python-based-ros-wstool-and-init-it" class="anchor" href="#download-additional-python-based-ros-wstool-and-init-it"><span class="octicon octicon-link"></span></a>Download additional python-based ROS <strong>wstool</strong> and init it:</h5>
+
+<pre><code>pip install -U wstool
+</code></pre>
+
+<ul>
+<li>or download and "python setup.py install" them from <a href="https://github.com/vcstools/">here</a>
+</li>
+<li>or "sudo apt-get install python-wstool" on linux</li>
+</ul><h5>
+<a name="create-python-virtualenv-called-nengoros-optional" class="anchor" href="#create-python-virtualenv-called-nengoros-optional"><span class="octicon octicon-link"></span></a>Create python <strong>virtualenv</strong> called nengoros (optional):</h5>
+
+<ul>
+<li>
+<p>download fortran</p>
+
+<pre><code>brew install gfortran
+</code></pre>
+</li>
+<li>
+<p>download virtualenv and wrapper</p>
+
+<pre><code>sudo pip install virtualenv
+sudo pip install virtualenvwrapper
+</code></pre>
+</li>
+<li>
+<p>create ~/.virtualenvs directory</p>
+
+<pre><code>source /usr/local/bin/virtualenvwrapper.sh 
+</code></pre>
+</li>
+<li>
+<p>create your virtualenv</p>
+
+<pre><code>mkvirtualenv nengoros
+source ~/.virtualenvs/nengoros/bin/activate
+</code></pre>
+</li>
+</ul><h5>
+<a name="install-scipy-and-numpy-also-optional" class="anchor" href="#install-scipy-and-numpy-also-optional"><span class="octicon octicon-link"></span></a>Install <strong>scipy</strong> and <strong>numpy</strong> (also optional):</h5>
+
+<pre><code>pip install numpy   
+pip install scipy
+</code></pre>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation:</h2>
+
+<ul>
+<li>
+<p>Make folder with workspace:</p>
+
+<pre><code>mkdir -p ~/workspace &amp;&amp; cd ~/workspace
+</code></pre>
+</li>
+<li>
+<p>In case of ROS not installed, point the ROS_PACKAGE_PATH into this folder (add to your ~/.profie or ~/.bashrc file )</p>
+
+<pre><code>export ROS_PACKAGE_PATH=~/workspace
+</code></pre>
+</li>
+<li>
+<p>Download Nengoros configuration:</p>
+
+<pre><code>git clone -b nengoros-master-v0.0.4 https://github.com/jvitku/nengoros.git
+</code></pre>
+</li>
+<li>
+<p>Download all repositories and install them (./tool -h)</p>
+
+<pre><code>cd nengoros
+./tool -unrf
+</code></pre>
+</li>
+<li><p>In Eclipse, import all auto-generated projects from nengoros folder (it is necessary to check the check-box <code>search for nested projects</code>, and after importing delete the projectTemplate), clean &amp; build them in Eclipse. </p></li>
+</ul><h2>
+<a name="running" class="anchor" href="#running"><span class="octicon octicon-link"></span></a>Running</h2>
+
+<ul>
+<li>
+<p>Now the simulator can be launched from class files generated by Eclipse. In order to <a href="http://nengo.ca/docs/html/tutorial1.html">launch GUI</a>, start the script under nengo/simulator-ui:</p>
+
+<pre><code>./nengo
+</code></pre>
+</li>
+<li>
+<p>In order to launch <a href="http://nengo.ca/docs/html/scripting_interface.html#running-scripts-from-the-command-line">command-line interface</a>, start the:</p>
+
+<pre><code>./nengo-cl
+</code></pre>
+</li>
+</ul><h2>
+<a name="demos" class="anchor" href="#demos"><span class="octicon octicon-link"></span></a>Demos</h2>
+
+<p>Demos for the Nengoros can be found on the official project site<a href="http://nengoros.wordpress.com">http://nengoros.wordpress.com</a>.</p>
+
+<p>Additionaly, there are two choices how to learn with NengoROS:</p>
+
+<h5>
+<a name="learn-with-nengo-part" class="anchor" href="#learn-with-nengo-part"><span class="octicon octicon-link"></span></a>Learn with Nengo part:</h5>
+
+<ul>
+<li>All demos of original Nengo simulator are unchanged and can be found under <code>nengo/simulator-ui/demo</code>
+</li>
+<li>To see detailed information about these demo, go to <a href="http://nengo.ca/docs/html/tutorial.html">Nengo demos</a> from Waterloo University.</li>
+</ul><h5>
+<a name="learn-with-nengo-ros-part" class="anchor" href="#learn-with-nengo-ros-part"><span class="octicon octicon-link"></span></a>Learn with Nengo-ROS part:</h5>
+
+<ul>
+<li>These simple demos show how the modified Nengo can employ ROS nodes in the simulation.</li>
+<li>The demo scripts can be found under: <code>nengo/simulatori-ui/nr-demo</code>
+</li>
+<li>The Nengoros currently features sub-project <code>demonodes</code>, where all demos are placed, see its <a href="https://github.com/jvitku/demonodes">readme</a> for all information.</li>
+<li>To se more information go to <a href="http://nengoros.wordpress.com/tutorials/">Nengoros tutorials</a>. </li>
+</ul><h2>
+<a name="additional-information" class="anchor" href="#additional-information"><span class="octicon octicon-link"></span></a>Additional information</h2>
+
+<p>The tool script is used to update the multi-project from repositories. Now, the complete.rosinstall version is suported. Various older versions are placed under <code>.versions</code> folder. In case you want to choose which version to use, e.g. for rosbased (creates .rosinstal file):</p>
+
+<pre><code>wstool init -j8 . .versions/rosbased.rosinstall
+</code></pre>
+
+<p>Run the tool script:</p>
+
+<pre><code>./tool -unrf
+</code></pre>
+
+<p>..this will:</p>
+
+<ul>
+<li>  update all repositories from remote</li>
+<li>  compile rosjava_core and install it into ~/.m2 repository</li>
+<li>  compile and install other nengoros components (e.g. install jroscore into ~/.m2 repo and creates runnable application under <code>jroscore</code> folder etc..)</li>
+</ul><h3>
+<a name="information-about-updating-nengoros" class="anchor" href="#information-about-updating-nengoros"><span class="octicon octicon-link"></span></a>Information about updating Nengoros:</h3>
+
+<p>THe script tool can update all projects from remote repositories:</p>
+
+<pre><code>    ./tool -h
+</code></pre>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/jvitku">jvitku</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
