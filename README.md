@@ -1,7 +1,7 @@
 NengoRos
 =========
 
-This is [Nengo-ros](http://nengoros.wordpress.com), a tool which merges [Nengo](https://github.com/ctn-waterloo/nengo_1.4) and [rosjava_core](https://github.com/rosjava/rosjava_core) in order to simulate large-scale hybrid neural systems capable of interfacing with real robotic systems. 
+This is [Nengo-ros](http://nengoros.wordpress.com), a tool which merges [Nengo](https://github.com/ctn-waterloo/nengo_1.4) and [rosjava_core](https://github.com/rosjava/rosjava_core) in order to simulate large-scale hybrid neural systems capable of interfacing with real robotic systems. Official site of this project is: [http://nengoros.wordpress.com](http://nengoros.wordpress.com).
 
 Author Jaroslav Vitku, research under [Alife group]((http://artificiallife.co.nf/projects/) on [Department of Cybernetics](http://cyber.felk.cvut.cz/) on CTU in Prague. 
 
@@ -19,8 +19,6 @@ Together, these packages provide mostly platform-independent **tool for simulati
 * running simulations of hybrid modular systems composed of arbitrary reusable ([ROS](http://wiki.ros.org/)) nodes
 * direct robot control
 * ...and much more.
-
-
 
 
 
@@ -99,16 +97,12 @@ Running
 		./nengo-cl
 
 
-
-
 Demos
 -------
 
-To launch jython script, open Nengo GUI, open command line interface and write command as:
-	
-	run nr-demo/gates/logic_crisp_gates.py
+Demos for the Nengoros can be found on the official project site[http://nengoros.wordpress.com](http://nengoros.wordpress.com).
 
-There are two choices how to learn with NengoROS:
+Additionaly, there are two choices how to learn with NengoROS:
 
 ##### Learn with Nengo part:
 	
@@ -123,46 +117,13 @@ There are two choices how to learn with NengoROS:
 * To se more information go to [Nengoros tutorials](http://nengoros.wordpress.com/tutorials/). 
 
 
-
-
-
-
-	
 Additional information
 -----------------------
 
-###Alternative ways to launch NengoROS:
 
-* to install Nengo is by running `./gradlew installApp` from the nengo/simulator-ui folder, launch nengo by running: `nengo/simulator-ui/build/install/simulator-ui/bin/simulator-ui`.
- 	
-	
-	* Note under Linux, Gradle has problem following symlinks, symlinked files should be copied directly on their place (mainly `nengo/simulator-ui/python` .. `/nr-demo`)
+The tool script is used to update the multi-project from repositories. Now, the complete.rosinstall version is suported. Various older versions are placed under `.versions` folder. In case you want to choose which version to use, e.g. for rosbased (creates .rosinstal file):
 
-* To launch everything from jar files: modify the `nengo` (`nengo-cl`) scripts appropriately to add to class-path also `simulator/lib` and `simulator-ui/lib/` jars.
-
-
-
-###Choices of installation:
-
-The currently supported is **complete** version:
-
-####complete:
-*	does not require any other ROS packages and contains ALL additional rosjava nodes (other can be added) and these are supported by nengo GUI
-* 	this is preferred and the most stable version
-
-####rosbased:
-*	use if you managed to install ROS infrastructure
-		
-####standalone:   
-*	this is similar to "complete" without additional rosjava nodes
-*	this version is now deprecated, the nengo GUI layout requires nodes contained in "complete.rosinstall" version
-*	use if you managed to install ROS infrastructure and you do not want all nodes 
-
-
-		
-In case you want to choose which version to use, e.g. for rosbased (creates .rosinstal file):
-
-	wstool init -j8 . rosbased.rosinstall
+	wstool init -j8 . .versions/rosbased.rosinstall
 
 Run the tool script:
 
@@ -173,8 +134,6 @@ Run the tool script:
 * 	update all repositories from remote
 *	compile rosjava_core and install it into ~/.m2 repository
 *	compile and install other nengoros components (e.g. install jroscore into ~/.m2 repo and creates runnable application under `jroscore` folder etc..)
-
-
 
 ###Information about updating Nengoros:
 
