@@ -25,7 +25,7 @@ Together, these packages provide mostly platform-independent **tool for simulati
 Javadocs
 -------------
 
-Javadocs for the nengo/simulator can be found [here](nengo-simulator/javadoc/index.html).
+Javadocs for the nengo/simulator can be found [here](javadoc/nengo-simulator/javadoc/index.html).
 
 Prerequisites:
 -------------
