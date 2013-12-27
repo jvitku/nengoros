@@ -30,6 +30,7 @@ Nate that links in this section will be "browsable" only offline or from the git
 * Nengo/simulator [project](javadoc/nengo/simulator/javadoc/index.html).
 * Nengo/simulator-ui [project](javadoc/nengo/simulator-ui/javadoc/index.html).
 * Demonodes/basic [project](javadoc/demonodes/basic/javadoc/index.html).
+* Jroscore [project](javadoc/jroscore/javadoc/index.html).
 * Logic/gates [project](javadoc/logic/gates/javadoc/index.html).
 * Vivae/vivaesimulator [project](javadoc/vivae/vivaesimulator/javadoc/index.html).
 * Vivae/vivaeplugin [project](javadoc/vivae/vivaeplugin/javadoc/index.html).
