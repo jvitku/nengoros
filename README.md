@@ -25,6 +25,8 @@ Together, these packages provide mostly platform-independent **tool for simulati
 Javadocs
 -------------
 
+Nate that links in this section work only from the github page of this project on: [http://jvitku.github.io/nengoros/](http://jvitku.github.io/nengoros/).
+
 Javadocs for the nengo/simulator can be found [here](javadoc/nengo-simulator/javadoc/index.html).
 
 Prerequisites:
