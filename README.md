@@ -25,7 +25,7 @@ Together, these packages provide mostly platform-independent **tool for simulati
 Javadocs
 -------------
 
-Nate that links in this section will be "browsable" only offline or from the github page of this project on: [http://jvitku.github.io/nengoros/](http://jvitku.github.io/nengoros/).
+Note that links in this section will be "browsable" only offline or from the github page of this project on: [http://jvitku.github.io/nengoros/](http://jvitku.github.io/nengoros/).
 
 * Nengo/simulator [project](javadoc/nengo/simulator/javadoc/index.html).
 * Nengo/simulator-ui [project](javadoc/nengo/simulator-ui/javadoc/index.html).
