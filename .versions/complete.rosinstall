@@ -13,14 +13,14 @@
 - git: {local-name: rosjava_core, uri: 'https://github.com/jvitku/rosjava_core.git', version: nr-hydro-master}
 
 # Frequently changed "core" repositories:
-- git: {local-name: jroscore, uri: 'https://github.com/jvitku/jroscore.git', version: nengoros-master-v0.0.4} 
-- git: {local-name: nengo, uri: 'https://github.com/jvitku/nengo_1.4.git', version: nengoros-master-v0.0.4}     
+- git: {local-name: jroscore, uri: 'https://github.com/jvitku/jroscore.git', version: nengoros-master-v0.0.5} 
+- git: {local-name: nengo, uri: 'https://github.com/jvitku/nengo_1.4.git', version: nengoros-master-v0.0.5}     
 - git: {local-name: custom_msgs, uri: 'https://github.com/jvitku/custom_msgs.git', version: master}
 
 # Optional "external" nodes:
-- git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: nengoros-master-v0.0.4}
-- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: master-v0.0.2}
-- git: {local-name: vivae, uri: 'https://github.com/jvitku/vivae.git', version: nengoros-master-v0.0.1}
+- git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: nengoros-master-v0.0.5}
+- git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: nengoros-master-v0.0.3}
+- git: {local-name: vivae, uri: 'https://github.com/jvitku/vivae.git', version: nengoros-master-v0.0.2}
 
 
 # Not implemented/used so far
