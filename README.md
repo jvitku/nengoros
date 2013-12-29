@@ -93,7 +93,7 @@ Installation:
 	
 * Download Nengoros configuration:
 
-		git clone -b nengoros-master-v0.0.4 https://github.com/jvitku/nengoros.git
+		git clone -b nengoros-master-v0.0.5 https://github.com/jvitku/nengoros.git
 
 	
 * Download all repositories and install them (./tool -h)
