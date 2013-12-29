@@ -44,7 +44,7 @@
 
 <p>Official site of this project: <a href="http://nengoros.wordpress.com">http://nengoros.wordpress.com</a>.</p>
 
-<p>This is Nengoros, a tool which merges <a href="https://github.com/ctn-waterloo/nengo_1.4">Nengo</a> and <a href="https://github.com/rosjava/rosjava_core">rosjava_core</a> in order to simulate large-scale hybrid neural systems capable of interfacing with real robotic systems. Official site of this project is: </p>
+<p>This is Nengoros, a tool which merges <a href="https://github.com/ctn-waterloo/nengo_1.4">Nengo</a> and <a href="https://github.com/rosjava/rosjava_core">rosjava_core</a> in order to simulate large-scale hybrid neural systems capable of interfacing with real robotic systems. </p>
 
 <p>Author Jaroslav Vitku, research under <a>Alife group</a> on <a href="http://cyber.felk.cvut.cz/">Department of Cybernetics</a> on CTU in Prague. </p>
 
@@ -155,7 +155,7 @@ pip install scipy
 <li>
 <p>Download Nengoros configuration:</p>
 
-<pre><code>git clone -b nengoros-master-v0.0.4 https://github.com/jvitku/nengoros.git
+<pre><code>git clone -b nengoros-master-v0.0.5 https://github.com/jvitku/nengoros.git
 </code></pre>
 </li>
 <li>
@@ -208,6 +208,14 @@ pip install scipy
 </ul><h2>
 <a name="additional-information" class="anchor" href="#additional-information"><span class="octicon octicon-link"></span></a>Additional information</h2>
 
+<h3>
+<a name="gradle-tests" class="anchor" href="#gradle-tests"><span class="octicon octicon-link"></span></a>Gradle tests</h3>
+
+<p>The project <code>nengo/simulator</code> has the src folder set to: <code>src/java/test/ctu</code> to ensure that all Nengo tests are omitted, in order to run also Nengo tests, set this folder to <code>src/java/test</code>.</p>
+
+<h3>
+<a name="tool-script" class="anchor" href="#tool-script"><span class="octicon octicon-link"></span></a>Tool Script</h3>
+
 <p>The tool script is used to update the multi-project from repositories. Now, the complete.rosinstall version is suported. Various older versions are placed under <code>.versions</code> folder. In case you want to choose which version to use, e.g. for rosbased (creates .rosinstal file):</p>
 
 <pre><code>wstool init -j8 . .versions/rosbased.rosinstall
@@ -231,6 +239,41 @@ pip install scipy
 
 <pre><code>    ./tool -h
 </code></pre>
+
+<h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<p>Describes development of the project, the TODO chapter can be found in the <code>changelog.md</code> file.</p>
+
+<h3>
+<a name="nengoros-master-v005" class="anchor" href="#nengoros-master-v005"><span class="octicon octicon-link"></span></a>nengoros-master-v0.0.5</h3>
+
+<ul>
+<li><p>Completely rewritten NeuralModule and DefaultNeuralModule. </p></li>
+<li><p>Added support for multiple Terminations for Encoder. Each Encoder now has MultiTermination. Now, the following can be used to add the weighted Termination <code>module2.newTerminationFor(F2FPubSub.ann2ros,[0.01,0.1,0.02,0.02])</code>, see <code>nr-demo/basic/multitermination.py</code>.</p></li>
+<li>Written nicer documentation and generated javadoc for all sub-projects (available also online on new <a href="http://jvitku.github.io/nengoros/">webpage</a>)</li>
+<li>Added unit tests </li>
+<li>Found and fixed many bugs (e.g. in RosUtils)</li>
+<li>Code is now much cleaner</li>
+</ul><h3>
+<a name="nengoros-master-v004" class="anchor" href="#nengoros-master-v004"><span class="octicon octicon-link"></span></a>nengoros-master-v0.0.4</h3>
+
+<ul>
+<li>Added support for the <a href="https://github.com/jvitku/vivae">my modification</a> of the <a href="http://cig.felk.cvut.cz/projects/robo/">Vivae</a> simulator. More precisely: the old version of Vivae support was removed from the Nengoros and placed into the <code>vivae/vivaeplugin</code> project.</li>
+</ul><h3>
+<a name="nengoros-master-v002" class="anchor" href="#nengoros-master-v002"><span class="octicon octicon-link"></span></a>nengoros-master-v0.0.2</h3>
+
+<ul>
+<li><p>Added three possibilities how to sync time between Nengo and ROS nodes: TimeMaster, TimeIgnore and TimeSlave. These are used in the <code>ca.nengo.util.impl.NodeThreadPool.step()</code>. </p></li>
+<li><p>Added demos representing time synchronization in the project demonodes/basic, the corresponding python scripts are located under <code>nr-demo/basic/time*</code></p></li>
+</ul><h3>
+<a name="nengoros-master-v001" class="anchor" href="#nengoros-master-v001"><span class="octicon octicon-link"></span></a>nengoros-master-v0.0.1</h3>
+
+<ul>
+<li><p>The first stable version. Version is mainly taken from my older repositories on bitbucket.org. </p></li>
+<li><p>Includes demos on rosjava, ROS nodes and native process.</p></li>
+<li><p>Communication with ROS nodes is synchronous or asynchronous</p></li>
+</ul>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/jvitku">jvitku</a></p>
