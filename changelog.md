@@ -1,20 +1,27 @@
-This document summarizes changes problems and and TODOs.
+Development of the Project 
+======================================
+This document describes mainly changes in the original [Nengo](http://nengo.ca/) simulator, the chapter `TODO` describes what should/could be done further. 
 
-@author Jaroslav Vitku
 
-Changelog
------------
+###nengoros-master-v0.0.5
+* Completely rewritten NeuralModule and DefaultNeuralModule. 
 
-###master-v0.0.4
+* Added support for multiple Terminations for Encoder. Each Encoder now has MultiTermination. Now, the following can be used to add the weighted Termination `module2.newTerminationFor(F2FPubSub.ann2ros,[0.01,0.1,0.02,0.02])`, see `nr-demo/basic/multitermination.py`.
+* Written nicer documentation and generated javadoc for all sub-projects (available also online on new [webpage](http://jvitku.github.io/nengoros/))
+* Added unit tests 
+* Found and fixed many bugs (e.g. in RosUtils)
+* Code is now much cleaner
+
+###nengoros-master-v0.0.4
 * Added support for the [my modification](https://github.com/jvitku/vivae) of the [Vivae](http://cig.felk.cvut.cz/projects/robo/) simulator. More precisely: the old version of Vivae support was removed from the Nengoros and placed into the `vivae/vivaeplugin` project.
 
-###master-v0.0.2
+###nengoros-master-v0.0.2
 
 * Added three possibilities how to sync time between Nengo and ROS nodes: TimeMaster, TimeIgnore and TimeSlave. These are used in the `ca.nengo.util.impl.NodeThreadPool.step()`. 
 
 * Added demos representing time synchronization in the project demonodes/basic, the corresponding python scripts are located under `nr-demo/basic/time*`
 
-###master-v0.0.1
+###nengoros-master-v0.0.1
 
 * The first stable version. Version is mainly taken from my older repositories on bitbucket.org. 
 
@@ -24,54 +31,32 @@ Changelog
 
 
 TODO
----------------
-
-### Nengoros Project Dependencies
-
-* TODO add better support for plugins, there should be two main scenarios: 
-
-	* everything as project dependencies (source) (almost current situation) 
-	* download everything from maven repository as jars
-
-* Problem with the Vivae plugin:
-
-	* Vivae has plugin which depends on Nengoros AbstractNeuralModule => dependency on Nengo. But in order to install Nengo, the vivae Jar file should be copied into lib folder. 
-	* In the current situation, the Vivae has to be compiled (which creates `vivae/vivae[plugin&simulator]/build/libs/*jar`) and these jars are then copied as libraries
-
-### Nengo
-
-* `ca.nengo.util.implNodeThreadPool`: waits for syncedUnits (that is sync. ROS nodes), ask for resending the message?
+==========================
 
 
-### Demos
+# Simulator Core and General
 
-* make demo how to write own RosBackend for support of custom ROS messages
+* Better implementation of waiting for `SynchedUnit`s?
 
+* Better handling of Exceptions
 
-Notes
---------
-Hopefully all changes in the nengo project (in the original packages) are marked by the string ///my
-
-Locations of Some Useful Files
--------------------------------
+* Deprecated ParameterHandler, is launched twice? Delete the deprecated one, use the one in RosUtils?
 
 
-### Nengo Simulator Core:
+# ROS integration into Nengo
 
-* everything is under `simulator` project
-* waiting for synchedUnits (synchronously running ROS nodes) `ca.nengo.util.impl.NodeThreadPool.step()`. 
-* checking how the nodes are called to run their simulation step: `ca.nengo.sim.impl.LocalSimulator.step()`.
-* time synchronization between Nengo and ROS: `ca.nengo.util.impl.NodeThreadPool.step()`.
+* Choose some method how to **check** whether the ROS nodes are set up and **ready** (now it may be necessary to wait several milliseconds before using the node in synchronous mode)
 
-* core was modified to publish simulated time across the ROS network, see: `ca.nengo.util.impl.NodeThreadPool.step()`.
+* Enable sending/receiving entire `RealOutput` value (multiple values) over the ROS network 
 
-### Nengoros Communication - Make Custom Messages
+	* Sending is done in the `ctu.nengoros.modules.impl.DefaultNeuraoModule.runAllEncoders()`, and therefore in the `Encoder.run()`
+	* Receiving values from the ROS network is done asynchronously (events) in the Decoder class.
+	
+* Enable encoding, sending and decoding `SpikeOutput` to/from the ROS messages. 
 
-* Everything necessary to parse new message should be in the `simulator`, package `ctu.nengoros.comm.rosBackend.backend`
-* DataTypesMap: add short and long version of name (long has to be the same as type of ROS message (e.g. "std_msgs.Float32MultiArray"), short can be used in jython scripts (e.g. "float"))
-* Backend: copy e.g. the file: `ctu.nengoros.comm.rosBackend.backend.impl.FloatBackend` and rewrite it to use your custom messages
+	* This requires ROS nodes with support of `SpikeOutput`
 
 
+# ROS support 
 
-
-
+* Encoding/Decoding multidimensional messages. Test it.
