@@ -41,8 +41,8 @@ ctu.nengoros.comm.rosBackend.decoders
 ctu.nengoros.comm.rosBackend.decoders.impl
 ctu.nengoros.comm.rosBackend.encoders
 ctu.nengoros.comm.rosBackend.encoders.impl
-ctu.nengoros.comm.rosBackend.multiTermination
-ctu.nengoros.comm.rosBackend.multiTermination.impl
+ctu.nengoros.comm.rosBackend.encoders.multiTermination
+ctu.nengoros.comm.rosBackend.encoders.multiTermination.impl
 ctu.nengoros.comm.rosBackend.transformations
 ctu.nengoros.comm.rosBackend.transformations.impl
 ctu.nengoros.comm.rosutils
@@ -53,8 +53,12 @@ ctu.nengoros.dynamics
 ctu.nengoros.exceptions
 ctu.nengoros.modules
 ctu.nengoros.modules.impl
-ctu.nengoros.modules.impl.test
-ctu.nengoros.newmodules
+ctu.nengoros.testsuit.demo
+ctu.nengoros.testsuit.demo.nodeTesters
+ctu.nengoros.testsuit.demo.nodes.gate
+ctu.nengoros.testsuit.demo.nodes.gate.util
+ctu.nengoros.testsuit.demo.nodes.minmax
+ctu.nengoros.testsuit.demo.nodes.pubsub
 ctu.nengoros.tools.io
 ctu.nengoros.tools.utils
 ctu.nengoros.util.sync

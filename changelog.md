@@ -36,6 +36,12 @@ TODO
 
 # Simulator Core and General
 
+* TimeUtils now require to be running when the RosUtils is not launched, TODO get rid of this:
+
+
+	ca.nengo.model.impl.ProjectionImplTest > testAddBias2D STANDARD_ERROR
+   		[RosUtils]: error! TimeUtil not initialized yet!
+
 * Better implementation of waiting for `SynchedUnit`s?
 
 * Better handling of Exceptions
