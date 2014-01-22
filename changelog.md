@@ -51,6 +51,8 @@ TODO
 
 # ROS integration into Nengo
 
+* Add default value to the termination, so the unconnected configuration will remain on default values, not zero (learning algorithms such as RL do not work well with learning par.=0)
+
 * Choose some method how to **check** whether the ROS nodes are set up and **ready** (now it may be necessary to wait several milliseconds before using the node in synchronous mode)
 
 * Enable sending/receiving entire `RealOutput` value (multiple values) over the ROS network 
