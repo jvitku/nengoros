@@ -20,7 +20,7 @@
 # Optional "external" nodes:
 - git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: nengoros-master-v0.0.5}
 - git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: nengoros-master-v0.0.3}
-- git: {local-name: vivae, uri: 'https://github.com/jvitku/vivae.git', version: nengoros-master-v0.0.2}
+- git: {local-name: vivae, uri: 'https://github.com/jvitku/vivae.git', version: nengoros-master-v0.0.3}
 - git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: nengoros-master-v0.0.4}
 - git: {local-name: physiology, uri: 'https://github.com/jvitku/physiology.git', version: nengoros-master-v0.0.1}
 

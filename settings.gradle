@@ -17,7 +17,7 @@ in other ROS(java) packages used.
 include 'jroscore', 'nengo:simulator', 'nengo:simulator-ui'
 
 // complete version adds these sub-projects:
-include 'logic:gates', 'demonodes:basic', 'physiology:statespace'//, 'vivae' //,'projectTemplate'
+include 'logic:gates', 'demonodes:basic', 'physiology:statespace', 'rl:sarsa'//, 'vivae' //,'projectTemplate'
 // howto: include '[folderName]:[subFolderName]:projectName=folderName'  (no full package name involved here)
 
 // simulators:
