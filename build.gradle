@@ -7,7 +7,7 @@ allprojects {
     
     // group of projects and its version
     group 'nengoros'
-    version = '0.0.5-SNAPSHOT'
+    version = '0.0.7-SNAPSHOT'
 
     // task to create gradle wrapper (used only once) [gradle wrapper]
     task wrapper(type: Wrapper) {
