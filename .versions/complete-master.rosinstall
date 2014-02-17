@@ -20,8 +20,9 @@
 # Optional "external" nodes:
 - git: {local-name: demonodes, uri: 'https://github.com/jvitku/demonodes.git', version: master}
 - git: {local-name: logic, uri: 'https://github.com/jvitku/logic.git', version: master}
+- git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: master}
+- git: {local-name: physiology, uri: 'https://github.com/jvitku/physiology.git', version: master}
 
 # Not implemented/used so far
-- git: {local-name: rl, uri: 'https://github.com/jvitku/rl.git', version: master}
 - git: {local-name: sequence, uri: 'https://github.com/jvitku/sequence.git', version: master}
 - git: {local-name: pattern, uri: 'https://github.com/jvitku/pattern.git', version: master}
