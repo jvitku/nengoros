@@ -36,3 +36,4 @@ taskArtifacts/
 /physiology
 /designer/
 /architectures/
+nengo_models/
