@@ -168,6 +168,12 @@ THe script tool can update all projects from remote repositories:
 Changelog
 --------------
 
+* Added the `nengorossHeadless` package, which implements brand new headless version of the simulator. It does the same as NengoROS, with the following differences:
+
+	Nengo is bypassed entirely from the simulation
+	should be much faster
+	simulation (setup, control) completely in java
+
 Describes development of the project, the TODO chapter can be found in the `changelog.md` file.
 
 ###nengoros-master-v0.0.5

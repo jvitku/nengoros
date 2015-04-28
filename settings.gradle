@@ -17,11 +17,15 @@ in other ROS(java) packages used.
 include 'jroscore', 'nengo:simulator', 'nengo:simulator-ui'
 
 // complete version adds these sub-projects:
-include 'logic:gates', 'demonodes:basic', 'physiology:statespace', 'rl:sarsa'//, 'vivae' //,'projectTemplate'
+include 'logic:gates', 'demonodes:basic', 'physiology:statespace', 'rl:mdp', 'rl:smdp'//, 'vivae' //,'projectTemplate'
 // howto: include '[folderName]:[subFolderName]:projectName=folderName'  (no full package name involved here)
 
 // simulators:
 include	'vivae:vivaesimulator', 'vivae:vivaeplugin'
+
+// environments: (TODO place simulators and encvironments into one project)
+include	'environments:gridworld', 'environments:statesactions'
+
 
 /*
 // @see Note1.
