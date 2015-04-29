@@ -169,6 +169,7 @@ THe script tool can update all projects from remote repositories:
 
 Changelog
 --------------
+* Added `designer` projects for the EA
 
 * Added the `nengorossHeadless` package, which implements brand new headless version of the simulator. It does the same as NengoROS, with the following differences:
 
