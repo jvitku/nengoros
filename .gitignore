@@ -37,3 +37,7 @@ taskArtifacts/
 /designer/
 /architectures/
 nengo_models/
+
+environments/
+ahni/
+
