@@ -245,14 +245,15 @@ shift $((OPTIND-1))
 virtualenv
 
 
+if [ $U = "1" ]; then
+    update
+fi
+
+
 # recompile rosjava and nengoros by default
 if [ $R = "0" -a $N = "0" -a $U = "0" ]; then
     rosjava $F
     nengoros $F
-fi
-
-if [ $U = "1" ]; then
-    update
 fi
 
 if [ $R = "1" ]; then
