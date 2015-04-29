@@ -2,6 +2,13 @@ Development of the Project
 ======================================
 This document describes mainly changes in the original [Nengo](http://nengo.ca/) simulator, the chapter `TODO` describes what should/could be done further. 
 
+###master
+
+* added environmnets
+* added ahni
+* added headless nengoros simulator
+* changed complete.rosinstall
+
 
 ###nengoros-master-v0.0.5
 * Completely rewritten NeuralModule and DefaultNeuralModule. 
