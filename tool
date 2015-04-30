@@ -137,6 +137,41 @@ rosjava(){
     deploy
 }
 
+nengorosPrerequisites(){
+    cd $BASE
+    
+    echo "\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+    echo "   XXXXXXX Building and installing the Nengoros prerequisites"
+    echo "      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n"
+ 
+    # basically here should be everything that is prerequisite of nengo/simulator and nengo/simulator-ui projects..
+    if [ $1 = "1" ]; then
+        
+        cd jroscore
+        ./gradlew install eclipse -x test
+        cd ../physiology/statespace
+        ./gradlew install eclipse -x test
+        cd ../../rl/smdp/
+        ./gradlew install eclipse -x test
+        cd ../../environments/gridworld/
+        ./gradlew install eclipse -x test
+        cd ../statesactions
+        ./gradlew install eclipse -x test
+        
+    else
+        cd jroscore
+        ./gradlew install eclipse test
+        cd ../physiology/statespace
+        ./gradlew install eclipse test
+        cd ../../rl/smdp/
+        ./gradlew install eclipse test
+        cd ../../environments/gridworld/
+        ./gradlew install eclipse test
+        cd ../statesactions
+        ./gradlew install eclipse test
+    fi   
+}
+
 
 ##################################################### Build Nengoros
 nengoros(){
@@ -261,6 +296,7 @@ if [ $R = "1" ]; then
 fi
 
 if [ $N = "1" ]; then
+    nengorosPrerequisites $F
     nengoros $F
 fi
 

@@ -167,8 +167,17 @@ THe script tool can update all projects from remote repositories:
 
 		./tool -h
 
-Changelog
---------------
+
+### Current temporary master
+
+#### TODO
+
+
+
+#### Changelog
+
+* `tool` now compiles all the nengo dependencies before starting to build the nengo
+
 * Added `designer` projects for the EA
 
 * Added the `nengorossHeadless` package, which implements brand new headless version of the simulator. It does the same as NengoROS, with the following differences:
