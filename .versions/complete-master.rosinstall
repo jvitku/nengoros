@@ -29,6 +29,7 @@
 
 # New stuff 
 - git: {local-name: environments, uri: 'https://github.com/jvitku/environments.git', version: master}
+- git: {local-name: vivae, uri: 'https://github.com/jvitku/vivae.git', version: master}
 - git: {local-name: ahni, uri: 'https://github.com/jvitku/ahni.git', version: master}
 
 # Old EA stuff
