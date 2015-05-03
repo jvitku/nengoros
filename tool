@@ -158,10 +158,10 @@ nengorosPrerequisites(){
         cd ../statesactions
         ./gradlew install eclipse -x test
         
-        cd ../../vivae/vivaesimulator/
-        ./gradlew install eclipse -x test
-        cd ../../vivae/vivaeplugin/
-        ./gradlew install eclipse -x test
+        #cd ../../vivae/vivaesimulator/
+        #./gradlew install eclipse -x test
+        #cd ../../vivae/vivaeplugin/
+        #./gradlew install eclipse -x test
         
     else
         cd jroscore
@@ -175,10 +175,11 @@ nengorosPrerequisites(){
         cd ../statesactions
         ./gradlew install eclipse test
         
-        cd ../../vivae/vivaesimulator/
-        ./gradlew install eclipse test
-        cd ../../vivae/vivaeplugin/
-        ./gradlew install eclipse test
+        # TODO the vivae does not compile on ubuntu
+        #cd ../../vivae/vivaesimulator/
+        #./gradlew install eclipse test
+        #cd ../../vivae/vivaeplugin/
+        #./gradlew install eclipse test
     fi   
 }
 
