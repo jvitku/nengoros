@@ -158,6 +158,11 @@ nengorosPrerequisites(){
         cd ../statesactions
         ./gradlew install eclipse -x test
         
+        cd ../vivae/vivaesimulator/
+        ./gradlew install eclipse -x test
+        cd ../vivae/vivaeplugin/
+        ./gradlew install eclipse -x test
+        
     else
         cd jroscore
         ./gradlew install eclipse test
@@ -168,6 +173,11 @@ nengorosPrerequisites(){
         cd ../../environments/gridworld/
         ./gradlew install eclipse test
         cd ../statesactions
+        ./gradlew install eclipse test
+        
+        cd ../vivae/vivaesimulator/
+        ./gradlew install eclipse test
+        cd ../vivae/vivaeplugin/
         ./gradlew install eclipse test
     fi   
 }
