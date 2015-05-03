@@ -176,6 +176,8 @@ THe script tool can update all projects from remote repositories:
 
 #### Changelog
 
+* `nengo` and `designer` projects switched to the master as both now support new feature: multithread evolution
+
 * `tool` now compiles all the nengo dependencies before starting to build the nengo
 
 * Added `designer` projects for the EA
